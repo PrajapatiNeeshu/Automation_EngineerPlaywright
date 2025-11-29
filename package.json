@@ -3,12 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:cucumber": "cucumber-js",
+    "test:cucumber:headed": "PWHEADLESS=0 cucumber-js --tags @smoke",
+    "test:signup": "PWHEADLESS=0 cucumber-js --tags @signup",
+    "test:search": "PWHEADLESS=0 cucumber-js --tags @search",
+    "test:regression": "cucumber-js --tags @regression",
+    "test:parallel": "cucumber-js --parallel 2"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.56.0",
-    "@types/node": "^24.5.2"
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@cucumber/pretty-formatter": "^2.3.0",
+    "playwright": "^1.56.1"
   }
 }
