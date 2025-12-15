@@ -1,15 +1,18 @@
 {
+  // Editor suggestions
   "editor.quickSuggestions": {
     "other": false,
-    "comments": false,
+    "comments": true,
     "strings": false
   },
   "editor.suggestOnTriggerCharacters": false,
   "editor.acceptSuggestionOnEnter": "off",
-  "editor.inlineSuggest.enabled": false,
-  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.acceptSuggestionOnCommitCharacter": true,
   "editor.suggestSelection": "first",
   "editor.snippetSuggestions": "top",
+
+  // Suggest visibility
   "editor.suggest.showKeywords": true,
   "editor.suggest.showMethods": true,
   "editor.suggest.showFunctions": true,
@@ -28,21 +31,39 @@
   "editor.suggest.showFolders": true,
   "editor.suggest.showTypeParameters": true,
   "editor.suggest.showSnippets": true,
-  "javascript.suggest.enabled": false,
-  "javascript.suggest.names": false,
-  "javascript.suggest.paths": false,
+
+  // JS/TS suggestions
+  "javascript.suggest.enabled": true,
+  "javascript.suggest.names": true,
+  "javascript.suggest.paths": true,
   "javascript.suggest.autoImports": false,
   "javascript.suggest.completeFunctionCalls": false,
   "javascript.suggestSelection": "first",
-  "typescript.suggest.enabled": false,
+  "typescript.suggest.enabled": true,
   "typescript.suggest.paths": false,
-  "typescript.suggest.autoImports": false,
-  "typescript.suggest.completeFunctionCalls": false,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.completeFunctionCalls": true,
+
   "editor.tabCompletion": "on",
+
+  // Formatting
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+
+  // Code actions on save
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always",
-    "source.organizeImports": "always"
-  }
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+   "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "editor.formatOnType": true, // required
+  "editor.formatOnPaste": true, // optional
+  "editor.formatOnSave": true, // optional
+  "editor.formatOnSaveMode": "file", // required to format on save
+  "files.autoSave": "onFocusChange", // optional but recommended
+  "vs-code-prettier-eslint.prettierLast": true // required
 }
+
+
