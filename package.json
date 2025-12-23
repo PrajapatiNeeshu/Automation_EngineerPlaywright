@@ -2,6 +2,7 @@
   "name": "automation_engineerplaywright",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test:cucumber": "cucumber-js",

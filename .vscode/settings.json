@@ -7,8 +7,8 @@
   },
   "editor.suggestOnTriggerCharacters": false,
   "editor.acceptSuggestionOnEnter": "off",
-  "editor.inlineSuggest.enabled": true,
-  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.inlineSuggest.enabled": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.suggestSelection": "first",
   "editor.snippetSuggestions": "top",
 
