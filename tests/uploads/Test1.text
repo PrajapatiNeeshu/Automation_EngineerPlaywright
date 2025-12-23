@@ -1,0 +1,171 @@
+The software testing landscape is undergoing a seismic shift. As AI agents become increasingly sophisticated, QA teams have an unprecedented opportunity to augment their capabilities and deliver higher quality software faster. But the transition from manual testing to AI-assisted workflows can feel overwhelming.
+This 90-day roadmap will guide you through a practical, phase-by-phase approach to integrating AI agents into your testing practice-from your first automation scripts to deploying intelligent agents that can reason about your application.
+
+Why Make the Shift Now?
+Manual testing served us well for decades, but modern software development demands more:
+
+Speed: CI/CD pipelines require instant feedback
+Coverage: Applications are too complex for purely manual validation
+Consistency: Human testers have off days; AI agents don’t
+Scale: Testing across browsers, devices, and configurations is exponentially growing
+
+AI agents aren’t here to replace testers-they’re here to handle the repetitive work so you can focus on exploratory testing, edge cases, and strategic quality initiatives.
+
+The 90-Day Roadmap
+Phase 1: Foundation (Days 1–30)
+Goal: Build automation fundamentals and understand AI
+capabilities
+
+Week 1–2: Assessment & Learning
+
+Audit your current testing process: Document what you test manually, how long it takes, and what’s most repetitive
+Learn automation basics: If you’re new to automation, start with free resources on Selenium, Playwright, or Cypress
+Explore AI testing tools: Research tools like Testim, Mabl, Applitools, and functionize to understand what’s possible
+
+Action Items:
+
+Pick 5 critical user flows in your application
+Create a spreadsheet tracking manual test execution time
+Complete a Playwright or Cypress tutorial (both have excellent docs)
+
+Week 3–4: First Automation Scripts
+
+Choose your framework: Playwright is excellent for modern web apps, Cypress for rapid development, Selenium for legacy support
+Write your first tests: Start with login, signup, and basic navigation
+Set up CI/CD integration: Get tests running in GitHub Actions, GitLab CI, or Jenkins
+
+Tools to explore:
+
+Playwright: Modern, fast, multi-browser support
+Cypress: Developer-friendly, great debugging
+Selenium: Industry standard, massive ecosystem
+
+Quick Win: Automate one smoke test suite that runs on every deployment
+
+Phase 2: AI-Assisted Testing (Days 31–60)
+Goal: Integrate AI tools for test generation, maintenance, and visual validation
+
+Week 5–6: AI-Powered Test Generation
+This is where things get exciting. AI code generators can dramatically accelerate test creation.
+
+Tools to leverage:
+
+2. Step-to-Code Generators:
+
+* STEP-TO-CODE GENERATOR (Open Source):
+https://github.com/77QAlab/step-to-code-generator Convert
+plain English test steps into executable code Playwright,
+Cypress, or TestCafe. Features AI-powered
+autocomplete with 34+ pre-built suggestions, custom step
+templates, test data management, and a selector helper
+tool. Perfect for manual testers transitioning to
+automation-no coding experience required.
+
+* Testim: Records your actions and converts them to
+stable, self-healing tests
+
+* Katalon Recorder: Free Chrome extension that generates
+Selenium code
+*** Checkly’s AI test generator:** Converts plain English
+descriptions to Playwright tests
+
+PRO TIP: AI code generators work best when you provide context. Include your page object patterns, naming conventions, and existing test examples in your prompts.
+
+Week 7–8: Self-Healing Tests & Visual AI
+One of the biggest pain points in test automation is maintenance. AI can help. Implement self-healing:
+
+Testim: Uses ML to automatically update locators when UI
+changes
+Mabl: Self-healing capabilities plus integrated visual
+testing
+Healenium: Open-source self-healing for Selenium
+
+Add visual validation:
+
+Applitools: Industry-leading visual AI that catches UI bugs
+humans miss
+Percy: Visual testing integrated with your existing tests
+Chromatic: Storybook-focused visual regression testing
+
+Action items:
+
+Integrate Applitools or Percy with 5 critical user flows
+Set up baseline images
+Intentionally break UI to see how visual AI catches issues
+ROI Moment: Visual AI typically catches 10–20% more bugs than functional tests alone
+
+Phase 3: AI Agents & Intelligent Testing (Days 61–90)
+Goal: Deploy autonomous AI agents that reason about your application.
+
+Week 9–10: AI Agent Fundamentals
+
+AI agents go beyond automation-they explore, reason, and adapt.
+Understanding AI Testing Agents
+
+Autonomous exploration: Agents discover new paths through your app.
+Intelligent assertions: They understand what “looks wrong” contextually.
+Natural language interaction: Describe what to test in plain English.
+Tools to Explore
+
+QA Wolf — Generates and maintains Playwright tests
+→ Converts manual test cases to automated tests
+→ Handles ongoing maintenance
+
+Octomind — Auto-discovers test cases
+→ Agents explore your app autonomously
+→ Creates tests from discovered user flows
+
+Relicx — Generates tests from session replays
+→ Learns from production usage
+→ Creates realistic scenarios
+
+Momentic — Low-code AI testing with intelligent assertions
+→ Visual editor with AI-powered element detection
+→ Self-maintaining test suite
+
+Week 9 Exercise
+
+✅ Pick one AI agent platform (Octomind has a generous free tier)
+✅ Let it crawl your staging environment
+✅ Review the tests it generates
+✅ Refine and incorporate them into your suite
+
+Week 10–11: Building Custom AI Testing Workflows
+Let’s go advanced-build custom AI agents using LLM APIs.
+
+Become a member
+Custom Agent Pattern Example
+
+import Anthropic from '@anthropic-ai/sdk'; const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY }); async function generateTestCases(userStory) { const message = await anthropic.messages.create({ model: 'claude-sonnet-4-20250514', max_tokens: 2000, messages: [{ role: 'user', content: `Generate comprehensive Playwright test cases for: ${userStory} Include: happy path, error cases, edge cases, and accessibility checks. Format as executable Playwright code.` }] }); return message.content[0].text; }
+Use Cases for Custom AI Agents
+
+Test data generation: Create realistic datasets
+Bug report analysis: AI suggests new tests from crash data
+Accessibility validation: AI reviews WCAG compliance
+Performance testing: Generates realistic load patterns
+Tools for Custom Agent Development
+
+LangChain — Build complex AI agent workflows
+Claude API / OpenAI API — LLMs for reasoning & analysis
+Playwright + AI — Combine browser automation with decision-making
+Week 12: Integration & Optimization
+
+name: AI-Powered Testing on: [push, pull_request] jobs: test: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - name: Run AI-generated tests run: npx playwright test - name: Visual AI comparison uses: applitools/eyes-playwright-action@v1 - name: AI bug analysis run: node scripts/analyze-failures.js
+2. Monitoring & Learning Loop
+
+Set up dashboards (Grafana, DataDog)
+Track test time, flakiness, bug detection rate
+Let AI agents learn from failures
+3. Team Training
+
+Document AI testing workflows
+Teach prompt engineering for test generation
+Define when to use AI vs manual testing
+Essential Tools Summary Foundation
+
+Playwright / Cypress
+GitHub Actions / GitLab CI
+Step-to-Code Generator
+AI-Assisted Testing
+
+GitHub Copilot / Cursor
