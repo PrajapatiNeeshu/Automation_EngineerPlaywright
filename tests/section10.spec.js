@@ -4,8 +4,7 @@
 //lecture -48
 
 
-const {test, expect, request} = require('@playwright/test');
-const {APiUtils} = require('./utils/APiUtils');
+import { expect, page, request, test } from '@playwright/test';
 
 //please correct this path if needed
 const email = "neeshubiet@gmail.com";
