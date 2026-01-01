@@ -1,0 +1,14 @@
+
+{
+  "app": "E-Commerce Web App",
+  "criticalFlows": [
+    "login",
+    "add to cart",
+    "checkout",
+    "payment"
+  ],
+  "selectors": {
+    "addToCart": ["#add-to-cart", ".add-btn", "text=Add to Cart"],
+    "checkout": ["#checkout", "text=Checkout"]
+  }
+}
