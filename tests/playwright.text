@@ -1,0 +1,192 @@
+Below is a clear, structured, interview-ready explanation of
+Context, Hooks, Fixtures, and Synchronization in Playwright, explained conceptually + practically, in simple Hindi + technical terms.
+
+1️⃣ Context in Playwright (Context kya hota hai?)
+Simple Explanation (Hindi)
+
+BrowserContext ek fresh browser profile hota hai
+Jaise ek naya user –
+alag cookies, alag cache, alag session.
+
+Example in real life
+
+Chrome → Guest window
+
+Incognito tab
+
+Each BrowserContext = new user
+
+Playwright Architecture
+Browser
+ ├─ BrowserContext (User 1)
+ │   └─ Page
+ ├─ BrowserContext (User 2)
+ │   └─ Page
+
+Example: Context Usage
+const context = await browser.newContext();
+const page = await context.newPage();
+
+await page.goto('https://example.com');
+
+Why Context Is Important
+
+✔ Parallel execution
+✔ No session clash
+✔ Multi-user testing
+✔ Faster than opening new browsers
+
+2️⃣ Hooks in Playwright (Hooks kya hote hain?)
+Simple Definition
+
+Hooks wo methods hote hain jo test se pehle ya baad run hote hain
+
+Available Hooks
+Hook	Kab chalta hai
+beforeAll	Sab tests se pehle
+beforeEach	Har test se pehle
+afterEach	Har test ke baad
+afterAll	Sab tests ke baad
+Example
+import { test } from '@playwright/test';
+
+test.beforeEach(async ({ page }) => {
+  await page.goto('https://demowebshop.tricentis.com/');
+});
+
+test('Test 1', async ({ page }) => {
+  // test logic
+});
+
+Interview Tip
+
+Hooks help reduce code duplication and maintain clean tests.
+
+3️⃣ Fixtures in Playwright (Fixtures kya hote hain?)
+Simple Explanation
+
+Fixtures pre-defined objects hote hain jo Playwright automatically provide karta hai
+
+Common Fixtures
+Fixture	Meaning
+browser	Browser instance
+context	Fresh browser context
+page	New tab
+request	API testing
+browserName	chromium/firefox/webkit
+Example Using Fixtures
+test('example test', async ({ page }) => {
+  await page.goto('https://example.com');
+});
+
+
+Here:
+
+page is a fixture
+
+context is auto-created
+
+Isolation is automatic
+
+Custom Fixture Example
+import { test as base } from '@playwright/test';
+
+export const test = base.extend({
+  loginPage: async ({ page }, use) => {
+    await page.goto('/login');
+    await use(page);
+  }
+});
+
+4️⃣ Synchronization in Playwright (Sync / Async)
+Problem in Selenium
+
+❌ Thread.sleep
+❌ Explicit wait overload
+❌ Flaky tests
+
+Playwright Solution
+
+Playwright is auto-synchronized by default
+
+Auto-waits for:
+
+✔ Element visible
+✔ Enabled
+✔ Attached to DOM
+✔ Network idle
+
+Example (Auto Wait)
+await page.click('#submit');
+
+
+Playwright waits automatically until:
+
+element is visible
+
+clickable
+
+Manual Wait (When Required)
+await page.waitForSelector('#success');
+
+Assertions Also Auto-Wait
+await expect(page.locator('#msg')).toHaveText('Success');
+
+5️⃣ Asynchronous Nature in Playwright
+Why async / await?
+
+Playwright is promise-based
+
+Wrong
+page.click('#login'); ❌
+
+Correct
+await page.click('#login'); ✅
+
+Common Async Mistake
+
+❌ Missing await
+❌ Using then()
+
+6️⃣ Context + Hooks + Fixtures + Sync (Combined Example)
+import { test, expect } from '@playwright/test';
+
+test.beforeEach(async ({ page }) => {
+  await page.goto('https://demowebshop.tricentis.com/');
+});
+
+test('Login page validation', async ({ page }) => {
+  await page.click('.ico-login');
+
+  await expect(
+    page.getByText('Welcome, Please Sign In!')
+  ).toBeVisible();
+});
+
+Interview Ready Summary (One-Liners)
+Context
+
+BrowserContext provides session isolation for each test.
+
+Hooks
+
+Hooks allow setup and teardown before and after tests.
+
+Fixtures
+
+Fixtures are reusable test dependencies injected automatically.
+
+Synchronization
+
+Playwright handles synchronization automatically using auto-waits.
+
+Async
+
+Playwright uses async/await for non-blocking execution.
+
+Selenium vs Playwright (Quick Compare)
+Feature	Selenium	Playwright
+Waits	Manual	Auto
+Context	New browser	New context
+Fixtures	❌	✅
+Flakiness	High	Low
