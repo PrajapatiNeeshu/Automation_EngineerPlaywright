@@ -2,7 +2,7 @@
 
 //Lecture 45
 
-   const {test,expect} = require('@playwright/test')
+import {test,expect} from '@playwright/test'
 
 //test.describe.configure({mode:'parallel'});
 //test.describe.configure({mode:'serial'});
