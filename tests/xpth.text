@@ -515,3 +515,209 @@ Agar chaho to next:
 1️⃣ Dynamic DOM ke 10 examples solve karaun
 2️⃣ XPath vs CSS speed & interview traps
 3️⃣ Playwright locator strategy (BEST PRACTICE)
+
+
+
+
+
+git
+
+Bilkul 👍
+Neeche **Git ke 15 MOST-COMMON interview questions** diye gaye hain — **simple Hindi + English mix**, **real-world examples**, aur **interview-ready answers** ke saath.
+Inko padh loge to **fresher + experienced dono level** cover ho jayega.
+
+---
+
+## 1️⃣ Git kya hai?
+
+**Answer:**
+Git ek **distributed version control system** hai jo source code ke changes ko track karta hai. Isse multiple developers ek hi project par saath kaam kar sakte hain bina ek-dusre ka code overwrite kiye.
+
+---
+
+## 2️⃣ Git aur GitHub me difference kya hai?
+
+**Answer:**
+
+| Git                        | GitHub                       |
+| -------------------------- | ---------------------------- |
+| Local tool                 | Cloud platform               |
+| Version control karta hai  | Code hosting + collaboration |
+| Offline bhi kaam karta hai | Internet required            |
+
+👉 Git = tool, GitHub = service
+
+---
+
+## 3️⃣ Repository kya hoti hai?
+
+**Answer:**
+Repository ek **folder / project** hota hai jisme:
+
+* Code
+* Git history
+* Branches
+  sab store hote hain.
+
+---
+
+## 4️⃣ `git clone` aur `git pull` me difference?
+
+**Answer:**
+
+* `git clone` → pehli baar repo copy karta hai
+* `git pull` → existing repo ko update karta hai
+
+```bash
+git clone https://github.com/user/repo.git
+git pull origin main
+```
+
+---
+
+## 5️⃣ Branch kya hoti hai?
+
+**Answer:**
+Branch ek **parallel line of development** hoti hai jisme aap bina main code disturb kiye kaam kar sakte ho.
+
+👉 Default branch = `main` / `master`
+
+---
+
+## 6️⃣ Merge kya hota hai?
+
+**Answer:**
+Merge ka matlab hai **do branches ke code ko combine karna**.
+
+```bash
+git merge feature-login
+```
+
+---
+
+## 7️⃣ Git conflict kya hota hai?
+
+**Answer:**
+Jab **same file ke same line** par multiple branches alag changes karti hain aur Git automatically decide nahi kar pata — conflict aata hai.
+
+---
+
+## 8️⃣ Git conflict kaise resolve karte ho?
+
+**Answer:**
+
+* Conflict file open
+* Correct code select
+* Conflict markers remove
+* `git add` + `git commit`
+
+---
+
+## 9️⃣ `git fetch` aur `git pull` me difference?
+
+**Answer:**
+
+* `git fetch` → sirf remote changes lata hai
+* `git pull` → fetch + merge dono karta hai
+
+---
+
+## 🔟 `git status` ka use?
+
+**Answer:**
+Working directory ki current state batata hai:
+
+* Modified files
+* Staged files
+* Untracked files
+
+---
+
+## 1️⃣1️⃣ `git add` aur `git commit` difference?
+
+**Answer:**
+
+* `git add` → staging area me dalta hai
+* `git commit` → permanent history banata hai
+
+```bash
+git add .
+git commit -m "Added login feature"
+```
+
+---
+
+## 1️⃣2️⃣ `git reset` vs `git revert`?
+
+**Answer:**
+
+| reset                    | revert                  |
+| ------------------------ | ----------------------- |
+| History change karta hai | History safe rakhta hai |
+| Local use                | Production safe         |
+| Commit delete            | New commit create       |
+
+---
+
+## 1️⃣3️⃣ `git stash` kya hai?
+
+**Answer:**
+Temporary changes ko side me rakh deta hai bina commit kiye.
+
+```bash
+git stash
+git stash pop
+```
+
+---
+
+## 1️⃣4️⃣ Pull Request (PR) kya hota hai?
+
+**Answer:**
+PR ek request hoti hai jisme aap apna code **review ke liye** kisi branch (usually `main`) me merge karne ke liye bhejte ho.
+
+---
+
+## 1️⃣5️⃣ Real-world Git workflow explain karo
+
+**Answer:**
+
+1. `main` branch stable hoti hai
+2. Feature ke liye new branch banti hai
+3. Code complete → PR create
+4. Review → merge
+5. Main branch update
+
+---
+
+## 🔹 BONUS – 3 One-line interview questions
+
+### 🔸 `.gitignore` kya karta hai?
+
+Unwanted files ko Git tracking se ignore karta hai.
+
+### 🔸 HEAD kya hota hai?
+
+Current branch ka latest commit reference.
+
+### 🔸 Detached HEAD kya hota hai?
+
+Jab aap directly kisi commit par checkout karte ho, branch par nahi.
+
+---
+
+## 🔹 Interview tip 🧠
+
+Agar answer short lag raha ho to ye line add kar do:
+
+> “In real projects, hum feature-based branching aur PR-based workflow follow karte hain.”
+
+---
+
+Agar chaho to next:
+1️⃣ **Git commands ka daily workflow (QA/Automation focused)**
+2️⃣ **Rebase vs Merge (conflict ke saath)**
+3️⃣ **GitHub PR ka end-to-end flow diagram**
+4️⃣ **Advanced Git questions (5+ years experience)**
+
+Bas bolo bhai 🔥

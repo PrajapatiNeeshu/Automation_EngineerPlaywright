@@ -12,7 +12,8 @@ await page.getByPlaceholder("email@example.com").fill(email);// used placed hold
 await page.getByPlaceholder("enter your passsword").fill("Nee@kumar1234");
 
 
-const loginPayLoad = { userEmail: "neeshubiet@gmail.com", userPassword: "Nee@kumar1234" };
+const loginPayLoad = { userEmail: "neeshubiet@gmail.com", userPassword: "Nee@kumar1234" }; // provid ethe payload for this API it will make it most paywload
+
 const orderPayLoad = {orders:[{country:"Cuba",productOrderedId:"67a8dde5c0d3e6622a297cc8"}]};
  
  
