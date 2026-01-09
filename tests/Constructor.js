@@ -1,5 +1,5 @@
 
-// import { testUser4 } from './testUser1.js';
+import { testUser4 } from './testUser1.js';
 
 
 
@@ -43,7 +43,7 @@
 // console.log("--------------",student4.name);
 
 
-// //---------------------------------------------Constructor me Method kaise add kare?
+//---------------------------------------------Constructor me Method kaise add kare?
 // function Student(name, age) {
 //   this.name = name;
 //   this.age = age;
@@ -57,24 +57,64 @@
 // s1.sayHello();
 
 
-let arr1,arr2,arr3;
-arr1 =  [1,2,3,4];
-arr2=   [4,5,7,8];
-console.time("start");
-for(let i =0;i<arr1.length;i++){
- for (let j=0;j<arr2.length;j++){
-    if(arr1[i]===arr2[j]){
-       const arr3 = arr1.push(arr2[j]);
- }
-console.log(arr3);
-console.timeEnd("End");
-}}
+// let arr1,arr2,arr3;
+// arr1 =  [1,2,3,4];
+// arr2=   [4,5,7,8];
+// console.time("start");
+// for(let i =0;i<arr1.length;i++){
+//  for (let j=0;j<arr2.length;j++){
+//     if(arr1[i]!=arr2[j]){
+//        const arr3 = arr1.push(arr2[j]);
+//  }
+// console.log(arr3);
+// console.timeEnd("End");
+// }}
+
+
+// let a = [];
+
+// console.log(a);
+
+// console.log(a.length());
+
+
+
+// const str = 'neeshu kumar';
+
+
+const arr = [2,4,6,8,10,7];
+const result = arr.find(n => n.arr%2!==0)
+console.log("result===>",result);
+
+let a,b;
+function srt(){
+return a+b;
+}
+ console.log(srt(2,8));
 
 
 
 
+function setlogin(){
+   setTimeout(()=>{
+      console.log("this is setTimeout",2000)
+   })
+
+   }
+
+setlogin();
 
 
+function greet(name, callback) {
+  console.log("Hello", name);
+  callback();
+}
+
+function done() {
+  console.log("Greeting complete");
+}
+
+greet("Neeshu", done);
 
 
 
