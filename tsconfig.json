@@ -7,9 +7,13 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "esnext",
     "types": ["node", "@playwright/test"]
   },
   "include": ["tests/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "esm": true,
+    "experimentalEsm": true
+  }
 }
