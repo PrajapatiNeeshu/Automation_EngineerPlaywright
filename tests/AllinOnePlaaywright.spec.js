@@ -1,39 +1,52 @@
 //JavaScript// tests/comprehensive-playwright-demo.spec.js
 
-import { test, expect } from '@playwright/test';
+import { test, expect, chromium } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 import { devices } from 'playwright';
-
 // Create artifact directories once before all tests
 test.beforeAll(async () => {
   ['screenshots', 'videos', 'downloads'].forEach(dir => {
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   });
 });
-
 test('1-2: Login and verify dashboard', async ({ page }) => {
-  await page.goto('https://the-internet.herokuapp.com/login');
-  await page.fill('#username', 'tomsmith');
-  await page.fill('#password', 'SuperSecretPassword!');
-  await page.click('button[type="submit"]');
 
+  // const browser = await chromium.launch();
+  // const context = await browser.newContext();
+  // const page = await context.newPage();
+
+  await page.goto('https://the-internet.herokuapp.com/login');
+  await page.locator("#username").fill("neeshubiet@gmail.com");
+  await page.locator("#password").fill("nee@kumar123");
+  await page.click('button[type="submit"]');
   const dashboardText = await page.textContent('.subheader');
   console.log('Dashboard text:', dashboardText);
+  // Step 3: Verify page title
+  await expect(page).toHaveTitle('Dashboard - Example App');
+  // Step 4: Verify dashboard heading
+  const dashboardHeading = page.locator('h1');
+  await expect(dashboardHeading).toBeVisible();
+  await expect(dashboardHeading).toHaveText('Dashboard');
+  // Step 5: Verify logged-in username
+  const userName = page.locator('#userProfileName');
+  await expect(userName).toHaveText('Welcome, Test User');
+  // Step 6: Verify important dashboard widget
+  const totalOrders = page.locator('.total-orders');
+  const ordersText = await totalOrders.innerText();
+  console.log('Orders Count:', ordersText);
+  // Step 7: Verify logout button exists
+  await expect(page.locator('#logoutBtn')).toBeVisible();
   await expect(page.locator('.subheader')).toHaveText('Welcome to the Secure Area. When you are done click logout below');
-
   await page.screenshot({ path: 'screenshots/login_success.png' });
 });
-
 test('3-5: Form filling, gender selection, checkbox', async ({ page }) => {
   await page.goto('https://demoqa.com/automation-practice-form');
-
   await page.fill('#firstName', 'John');
   await page.fill('#lastName', 'Doe');
   await page.fill('#userEmail', 'john.doe@example.com');
   await page.fill('#userNumber', '1234567890');
   await page.fill('#currentAddress', '123 Taj Road, Agra, India');
-
   // Select Male radio (equivalent to dropdown in many forms)
   await page.click('label[for="gender-radio-1"]');
 
@@ -56,6 +69,18 @@ await genderDropdown.selectOption({ value: '1' });
 
 // Step 5: Fetch selected value for verification
 const selectedGender = await genderDropdown.inputValue();
+//✅ Select by VALUE (Most common)
+await page.selectOption('#country', 'IN');
+//✅ Select by LABEL (Visible text)
+await page.selectOption('#country', { label: 'India' });
+
+//✅ Select by INDEX
+
+await page.selectOption('#country', { index: 2 });//
+
+//✅ Verify Selected Value
+const selectedValue = await page.locator('#country').inputValue();
+expect(selectedValue).toBe('IN');
 
 // Step 6: Print selected value in console
 console.log('Selected Gender Value:', selectedGender);
@@ -100,34 +125,34 @@ test('8: Mobile emulation with iPhone 13', async ({ browser }) => {
   const iPhone13 = devices['iPhone 13'];
   const context = await browser.newContext({ ...iPhone13 });
   const page = await context.newPage();
-
   await page.goto('https://playwright.dev');
   await page.screenshot({ path: 'screenshots/mobile_iphone13.png' });
-
   await context.close();
 });
 
-test('9: File upload and download', async ({ page }) => {
+test.only('9: File upload and download', async ({ page }) => {
   // Upload
   await page.goto('https://the-internet.herokuapp.com/upload');
-  const filePath = path.join(__dirname, '../sample-upload.txt');
-  fs.writeFileSync(filePath, 'Sample file content for upload');
-
+    // 2. File ka path banao
+  const filePath = path.join(__dirname, 'sample-upload.txt');
+  // 3. File upload karo
   await page.setInputFiles('#file-upload', filePath);
+  // 4. Upload button click
   await page.click('#file-submit');
-
-  await expect(page.locator('#uploaded-files')).toHaveText('sample-upload.txt');
-
+  // 5. Verify file name
+  await expect(page.locator('#uploaded-files'))
+    .toHaveText('sample-upload.txt');
   // Download
-  await page.goto('https://the-internet.herokuapp.com/download');
-  const [download] = await Promise.all([
-    page.waitForEvent('download'),
-    page.click('text=some-file.txt')
-  ]);
-  const downloadPath = path.join(__dirname, '../downloads', download.suggestedFilename());
-  await download.saveAs(downloadPath);
-  console.log(`Downloaded file saved to: ${downloadPath}`);
+  // 2. Download start hone ka wait + click
+  const download = await page.waitForEvent('download');
+  await page.click('text=some-file.txt');
+  // 3. File kaha save hogi
+  const filePath1 = path.join(__dirname, 'some-file.txt');
+  // 4. File save karo
+  await download.saveAs(filePath1);
+  console.log('File downloaded at:', filePath1);
 });
+
 
 test('10: New tabs and popup windows', async ({ context, page }) => {
   // New tab
@@ -151,6 +176,36 @@ test('10: New tabs and popup windows', async ({ context, page }) => {
   console.log('Popup window text:', windowText);
   await newWindow.close();
 });
+test('Handle new tab', async ({ context, page }) => {
+  // Parent page open
+  await page.goto('https://the-internet.herokuapp.com/windows');
+  // New tab ka wait + click
+  const newTab = await context.waitForEvent('page');
+  await page.click('text=Click Here');
+  // New tab ready hone ka wait
+  await newTab.waitForLoadState();
+  // New tab ka title
+  console.log('New Tab Title:', await newTab.title());
+  // New tab close
+  await newTab.close();
+});
+test('Handle new window (popup)', async ({ context, page }) => {
+
+  await page.goto('https://demoqa.com/browser-windows');
+
+  // New window wait + click
+  const newWindow = await context.waitForEvent('page');
+  await page.click('#windowButton');
+
+  await newWindow.waitForLoadState();
+
+  // Popup text verify
+  const text = await newWindow.textContent('#sampleHeading');
+  console.log('Popup Text:', text);
+
+  // Close popup
+  await newWindow.close();
+});
 
 test('12: Mouse actions - double click, right click, hover', async ({ page }) => {
   await page.goto('https://demoqa.com/buttons');
@@ -169,19 +224,14 @@ test('12: Mouse actions - double click, right click, hover', async ({ page }) =>
   await page.screenshot({ path: 'screenshots/hover_effect.png' });
 });
 //what is the difference between page.click and page.hover_effect
-
-
-
 test('13-14: Evaluate JavaScript and handle dialogs/alerts', async ({ page }) => {
   // Evaluate JS
   await page.goto('https://example.com');
   const title = await page.evaluate(() => document.title);
   console.log('Title via evaluate:', title);
-
   // Handle alerts  
   //make it dialog handling 
   // Handle dialogs 
-
   page.on('dialog', async dialog => {
     console.log(`Dialog message: ${dialog.message()}`);
     await dialog.accept('Playwright Response');
@@ -197,16 +247,13 @@ test('15: Screenshot for visual testing reference', async ({ page }) => {
   await page.goto('https://playwright.dev');
   await page.screenshot({ path: 'screenshots/visual_reference.png', fullPage: true });
 });
-
 test('16: Basic authentication and storage state', async ({ browser }) => {
-  const context = await browser.newContext({
+   const context = await browser.newContext({
     httpCredentials: { username: 'admin', password: 'admin' }
   });
   const page = await context.newPage();
-
   await page.goto('https://the-internet.herokuapp.com/basic_auth');
   await expect(page.locator('.example p')).toHaveText('Congratulations! You must have the proper credentials.');
-
   await context.storageState({ path: 'auth.json' });
   console.log('Authentication state saved to auth.json');
   await context.close();
@@ -220,10 +267,8 @@ test('17: Record video', async ({ browser }) => {
     }
   });
   const page = await context.newPage();
-
   await page.goto('https://example.com');
   await page.click('text=More information...');
-
   await context.close(); // Video is saved automatically
   console.log('Video recorded and saved in videos/ folder');
 });
