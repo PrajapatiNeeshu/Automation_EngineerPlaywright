@@ -185,7 +185,7 @@ test('Handle new tab', async ({ context, page }) => {
   // New tab ready hone ka wait
   await newTab.waitForLoadState();
   // New tab ka title
-  console.log('New Tab Title:', await newTab.title());
+  console.log('New Tab Title:', await newTab.title()); 
   // New tab close
   await newTab.close();
 });
