@@ -1,5 +1,5 @@
 import {test, expect, request} from '@playwright/test';
-import {APiUtils} from './utils/APiUtils.js';
+import {APiUtils} from '../utils/APiUtils.js';
 const loginPayLoad = {userEmail:"anshika@gmail.com",userPassword:"Iamking@000"};
 const orderPayLoad = {orders:[{country:"Cuba",productOrderedId:"67a8dde5c0d3e6622a297cc8"}]};
  
@@ -15,7 +15,7 @@ test.beforeAll( async()=>
  
  
 //create order is success
-test('@API Place the order', async ({page})=>
+test('API Place the order', async ({page})=>
 { 
     await page.addInitScript(value => {
  

@@ -1,4 +1,4 @@
-const { test, expect } = require("@playwright/test");
+import { test, expect } from "@playwright/test";
 test("@Web Client App login", async ({ page }) => {
   //js file- Login js, DashboardPage
   const email = "eddygpm@gmail.com";

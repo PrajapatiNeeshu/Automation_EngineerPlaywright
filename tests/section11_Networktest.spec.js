@@ -1,5 +1,5 @@
 import { test, expect, request } from '@playwright/test';
-import { APiUtils } from './utils/APiUtils.js';
+import { APiUtils } from '../utils/APiUtils.js';
 const loginPayLoad = { userEmail: "neeshubiet@gmail.com", userPassword: "Nee@kumar1234" };
 const orderPayLoad = { orders: [{ country: "India", productOrderedId: "6262e95ae26b7e1a10e89bf0" }] };
 const fakePayLoadOrders = { data: [], message: "No Orders" };
