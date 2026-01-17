@@ -16,10 +16,10 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Confirm password:' }).fill('nee@kumar123');
   await page.getByRole('button', { name: 'Register' }).click();
 });
-test.only("login page ", async ({ page }) => {
+test.only("login page ", async ({ page, browser }) => {
     
     const context = await browser.newContext();
-    const page = await context.newPage();
+    const loginPage = await context.newPage();
     await page.goto("'https://demowebshop.tricentis.com/'");
     const text = page.locator('.ico-login').click();
   

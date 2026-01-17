@@ -6,8 +6,9 @@ import {test,expect} from '@playwright/test'
 
 //test.describe.configure({mode:'parallel'});
 //test.describe.configure({mode:'serial'});
-test.describe.configure({mode:'parallel'});
-test("@Web Popup validations",async({page})=>
+//test.describe.configure({mode:'parallel'});  //default is parallel what is the use of serial if we have independent test cases we can go for parallel mode if dependent test cases we can go for serial mode
+test.describe.configure({mode:'serial'}); // what will be the output if one of the test case is failed in between the serial mode-all the subsequent test cases will be skipped
+test("@web Popup validations",async({page})=>
 {
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
 
@@ -57,7 +58,7 @@ await page.locator("#mousehover").hover();
 
 })
 
-test("Screenshot & Visual comparision",async({page})=>
+test(" @web Screenshot & Visual comparision",async({page})=>
 {
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     await expect(page.locator("#displayed-text")).toBeVisible();
@@ -67,7 +68,7 @@ test("Screenshot & Visual comparision",async({page})=>
     await expect(page.locator("#displayed-text")).toBeHidden();
 });
 //screenshot -store -> screenshot -> 
-test.skip('visual',async({page})=>
+test('@web visual',async({page})=>
 {
     //make payment -when you 0 balance
       await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
