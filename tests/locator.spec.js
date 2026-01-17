@@ -1,4 +1,4 @@
- const {test, expect } = require('@playwright/test')
+ import {test, expect } from '@playwright/test'
  //any one methods we can use import method
 
  test('Locator',  async ({page})=>

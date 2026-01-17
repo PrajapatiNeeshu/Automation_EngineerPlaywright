@@ -1,0 +1,723 @@
+Samajhne ke liye hum **step-by-step, bilkul basic se** start karenge.
+Main **DOM → XPath → CSS selector** ko connect karke samjhaunga, taaki aapko yaad bhi rahe aur interview + real automation me use bhi ho.
+
+---
+
+# 1️⃣ DOM kya hota hai? (Bilkul simple language me)
+
+**DOM (Document Object Model)** ek **tree structure** hota hai.
+
+Browser HTML ko **tree** bana deta hai:
+
+* Parent (baap)
+* Child (beta)
+* Sibling (bhai-behen)
+* Ancestor (dada-pardada)
+* Descendant (beta-pota)
+
+### Example HTML
+
+```html
+<div class="container">
+    <label>Email</label>
+    <input type="text" name="email">
+</div>
+```
+
+### DOM Tree (socho is tarah):
+
+```
+div (container)   ← parent
+ ├── label        ← child
+ └── input        ← child
+```
+
+👉 **XPath aur CSS dono DOM tree ke upar kaam karte hain**
+
+---
+
+# 2️⃣ XPath vs CSS (short me)
+
+| Feature              | XPath        | CSS        |
+| -------------------- | ------------ | ---------- |
+| Parent select        | ✅ Yes        | ❌ No       |
+| Text se locate       | ✅ Yes        | ❌ No       |
+| Traversing (up/down) | ✅ Full power | ⚠️ Limited |
+| Speed                | Medium       | Fast       |
+| Readability          | Medium       | Easy       |
+
+👉 **Rule yaad rakho**
+
+* **Text / parent / complex relation → XPath**
+* **Simple, fast, clean → CSS**
+
+---
+
+# 3️⃣ XPath Axes (jo aapne likhe hain) – ek-ek karke
+
+---
+
+## 🔹 Following-Sibling
+
+### XPath
+
+```xpath
+//label[text()='Email']/following-sibling::input[1]
+```
+
+### Meaning
+
+* `label[text()='Email']` → Email text wala label
+* `following-sibling::input[1]` → uske **baad aane wala pehla input**
+
+### DOM Example
+
+```html
+<label>Email</label>
+<input type="text">
+<input type="password">
+```
+
+👉 Ye **pehla input** lega
+
+---
+
+## 🔹 Parent
+
+### XPath
+
+```xpath
+//label[text()='Email']/parent::div
+```
+
+### Meaning
+
+* Label ka **direct parent div**
+
+### DOM
+
+```html
+<div>
+   <label>Email</label>
+</div>
+```
+
+👉 XPath me **parent upar jaane ke liye use hota hai**
+👉 CSS me **parent select karna possible nahi**
+
+---
+
+## 🔹 Child
+
+### XPath
+
+```xpath
+//div[@class='container']/child::input[@type='text']
+```
+
+### Meaning
+
+* `container` div ke **direct child input**
+
+### CSS equivalent
+
+```css
+div.container > input[type='text']
+```
+
+👉 `>` = **direct child**
+
+---
+
+## 🔹 Preceding-Sibling
+
+### XPath
+
+```xpath
+//td[text()='Maria Andres']/preceding-sibling::td/child::input
+```
+
+### Meaning
+
+* Maria Andres wale `td` ke **left side ke td**
+* Uske andar ka input
+
+### Table Example
+
+```html
+<td><input type="checkbox"></td>
+<td>Maria Andres</td>
+```
+
+👉 Checkbox ko select karne ke liye use hota hai
+
+⚠️ **CSS me preceding sibling possible nahi**
+
+---
+
+## 🔹 Descendant
+
+### XPath
+
+```xpath
+//div[@class='container']/descendant::button
+```
+
+### Meaning
+
+* `container` div ke andar **kahin bhi** jo button ho
+
+### CSS equivalent
+
+```css
+div.container button
+```
+
+👉 Space (` `) = descendant
+
+---
+
+## 🔹 Ancestor (aapne mention kiya but likha nahi)
+
+### XPath
+
+```xpath
+//input[@name='email']/ancestor::div
+```
+
+### Meaning
+
+* Input ke **upar wale divs (parent, grandparent)**
+
+⚠️ CSS me ancestor possible nahi
+
+---
+
+## 🔹 Starts-With
+
+### XPath
+
+```xpath
+//input[starts-with(@name,'UserLastName')]
+```
+
+### HTML
+
+```html
+<input name="UserLastName_123">
+```
+
+### CSS equivalent
+
+```css
+input[name^='UserLastName']
+```
+
+👉 `^=` = starts with
+
+---
+
+# 4️⃣ normalize-space() – bahut IMPORTANT interview topic
+
+### Problem
+
+HTML me extra spaces, newline aa jate hain:
+
+```html
+<label>
+   Email   
+</label>
+```
+
+### Ye fail karega ❌
+
+```xpath
+//label[text()='Email']
+```
+
+### Correct way ✅
+
+```xpath
+//label[normalize-space()='Email']
+```
+
+### normalize-space kya karta hai?
+
+* Leading space hata deta hai
+* Trailing space hata deta hai
+* Beech ke multiple spaces ko single bana deta hai
+
+### Contains + normalize-space
+
+```xpath
+//label[contains(normalize-space(),'Email')]
+```
+
+👉 **Text locator likhte waqt ALWAYS normalize-space use karo**
+
+---
+
+# 5️⃣ CSS selector DOM ke hisab se kaise likhe?
+
+### Same HTML
+
+```html
+<div class="container">
+   <label>Email</label>
+   <input type="text" name="email">
+</div>
+```
+
+### CSS
+
+```css
+div.container > input
+```
+
+### XPath
+
+```xpath
+//div[@class='container']/input
+```
+
+---
+
+# 6️⃣ Real Automation Example (Playwright / Selenium)
+
+### XPath
+
+```js
+await page.locator("//label[normalize-space()='Email']/following-sibling::input").fill("test@gmail.com");
+```
+
+### CSS
+
+```js
+await page.locator("div.container > input[name='email']").fill("test@gmail.com");
+```
+
+---
+
+# 7️⃣ Interview me kaise explain kare (ready-made answer)
+
+> DOM ek tree structure hota hai jisme parent, child, sibling relationship hoti hai.
+> XPath hume DOM ke andar upar-neeche traverse karne deta hai, jaise parent, ancestor, preceding-sibling.
+> CSS selectors fast hote hain lekin parent aur text selection support nahi karte.
+> Text-based locators ke liye XPath aur normalize-space ka use karna best practice hai.
+
+---
+
+# 8️⃣ Short Cheat Sheet
+
+| Requirement   | Use                        |
+| ------------- | -------------------------- |
+| Text based    | XPath + normalize-space    |
+| Parent select | XPath                      |
+| Simple & fast | CSS                        |
+| Starts with   | XPath starts-with / CSS ^= |
+| Ends with     | XPath substring / CSS $=   |
+| Contains      | XPath contains / CSS *=    |
+| Sibling left  | XPath preceding-sibling    |
+| Sibling right | XPath following-sibling    |
+
+---
+
+Agar aap chaho to main next step me:
+1️⃣ **Live DOM diagram bana ke samjhaun**
+2️⃣ **10 interview questions + answers**
+3️⃣ **Same element ke 5 different XPath & CSS likhna sikhaun**
+
+Bas bolo bhai, kaunsa chahiye 👍
+
+
+
+
+1️⃣ contains ka concept kya hai? (Simple language)
+
+Jab attribute ya text ka exact value fix na ho,
+ya dynamic ho,
+ya partial match chahiye,
+tab contains use karte hain.
+
+👉 Matlab:
+
+“Iske andar ye word kahi bhi hona chahiye”
+
+2️⃣ XPath contains() – FULL Explanation
+Syntax
+contains(source, 'value')
+
+source kya ho sakta hai?
+
+@attribute
+
+text()
+
+normalize-space()
+
+🔹 2.1 Attribute ke sath contains (MOST COMMON)
+HTML
+<input id="user_email_123">
+
+XPath
+//input[contains(@id,'email')]
+
+Meaning
+
+@id ke andar kahin bhi email ho
+
+✔️ Match karega:
+
+user_email_123
+
+email_input
+
+login_email_box
+
+🔹 2.2 Text ke sath contains
+HTML
+<button> Login Now </button>
+
+XPath
+//button[contains(text(),'Login')]
+
+Problem (spaces issue)
+
+Extra spaces / newline ho to fail ho sakta hai ❌
+
+BEST PRACTICE ✅
+//button[contains(normalize-space(),'Login')]
+
+
+👉 Interview me yahi bolo
+
+🔹 2.3 Contains + multiple attributes
+HTML
+<input type="text" name="user_email_login">
+
+XPath
+//input[contains(@name,'email') and @type='text']
+
+3️⃣ CSS *= – XPath contains ka bhai 😄
+Syntax
+[attribute*='value']
+
+🔹 3.1 Attribute contains (CSS)
+HTML
+<input id="user_email_123">
+
+CSS
+input[id*='email']
+
+Meaning
+
+id ke andar email kahi bhi ho
+
+🔹 3.2 Class ke sath contains
+HTML
+<button class="btn btn-login-primary">
+
+CSS
+button[class*='login']
+
+
+⚠️ Warning:
+
+Ye multiple elements match kar sakta hai
+
+Always scope ke sath use karo
+
+form button[class*='login']
+
+🔹 3.3 CSS me TEXT ka contains ❌
+
+❌ Ye galat hai:
+
+button:contains('Login')
+
+
+🚫 Selenium / Playwright support nahi karta
+
+👉 CSS visible text ke upar kaam nahi karta
+
+4️⃣ XPath contains vs CSS *= (Comparison)
+Feature	XPath contains	CSS *=
+Attribute contains	✅	✅
+Text contains	✅	❌
+normalize-space	✅	❌
+Parent traversal	✅	❌
+Speed	Medium	Fast
+Interview importance	⭐⭐⭐⭐	⭐⭐⭐
+5️⃣ Real DOM → Selector mapping
+HTML
+<div class="login-form">
+   <label> Email Address </label>
+   <input name="user_email_login">
+</div>
+
+XPath (text + relation)
+//label[contains(normalize-space(),'Email')]/following-sibling::input
+
+CSS (attribute only)
+div.login-form input[name*='email']
+
+6️⃣ Real Automation Examples
+Playwright (XPath)
+await page.locator("//input[contains(@name,'email')]").fill("test@gmail.com");
+
+Playwright (CSS)
+await page.locator("input[name*='email']").fill("test@gmail.com");
+
+Selenium Java
+driver.findElement(By.cssSelector("input[name*='email']")).sendKeys("test@gmail.com");
+driver.findElement(By.xpath("//button[contains(normalize-space(),'Login')]")).click();
+
+7️⃣ Interview me kaise explain kare (READY ANSWER)
+
+Contains ka use tab karte hain jab attribute ya text dynamic ho.
+XPath contains() text aur attribute dono ke liye use hota hai, aur spaces handle karne ke liye normalize-space() ke sath use karna best practice hai.
+CSS me *= sirf attribute ke liye hota hai, text ke liye support nahi karta.
+
+8️⃣ Common mistakes (avoid these)
+
+❌ Dynamic ID ke liye full match:
+
+//input[@id='user_email_123']
+
+
+✅ Correct:
+
+//input[contains(@id,'email')]
+
+
+❌ CSS me text:
+
+button:contains('Login')
+
+
+✅ XPath:
+
+//button[contains(normalize-space(),'Login')]
+
+9️⃣ Quick memory trick 🧠
+
+contains = andar kahi bhi
+
+XPath → attribute + text
+
+CSS *= → sirf attribute
+
+Text = XPath only
+
+Extra spaces = normalize-space ALWAYS
+
+Agar chaho to next:
+1️⃣ Dynamic DOM ke 10 examples solve karaun
+2️⃣ XPath vs CSS speed & interview traps
+3️⃣ Playwright locator strategy (BEST PRACTICE)
+
+
+
+
+
+git
+
+Bilkul 👍
+Neeche **Git ke 15 MOST-COMMON interview questions** diye gaye hain — **simple Hindi + English mix**, **real-world examples**, aur **interview-ready answers** ke saath.
+Inko padh loge to **fresher + experienced dono level** cover ho jayega.
+
+---
+
+## 1️⃣ Git kya hai?
+
+**Answer:**
+Git ek **distributed version control system** hai jo source code ke changes ko track karta hai. Isse multiple developers ek hi project par saath kaam kar sakte hain bina ek-dusre ka code overwrite kiye.
+
+---
+
+## 2️⃣ Git aur GitHub me difference kya hai?
+
+**Answer:**
+
+| Git                        | GitHub                       |
+| -------------------------- | ---------------------------- |
+| Local tool                 | Cloud platform               |
+| Version control karta hai  | Code hosting + collaboration |
+| Offline bhi kaam karta hai | Internet required            |
+
+👉 Git = tool, GitHub = service
+
+---
+
+## 3️⃣ Repository kya hoti hai?
+
+**Answer:**
+Repository ek **folder / project** hota hai jisme:
+
+* Code
+* Git history
+* Branches
+  sab store hote hain.
+
+---
+
+## 4️⃣ `git clone` aur `git pull` me difference?
+
+**Answer:**
+
+* `git clone` → pehli baar repo copy karta hai
+* `git pull` → existing repo ko update karta hai
+
+```bash
+git clone https://github.com/user/repo.git
+git pull origin main
+```
+
+---
+
+## 5️⃣ Branch kya hoti hai?
+
+**Answer:**
+Branch ek **parallel line of development** hoti hai jisme aap bina main code disturb kiye kaam kar sakte ho.
+
+👉 Default branch = `main` / `master`
+
+---
+
+## 6️⃣ Merge kya hota hai?
+
+**Answer:**
+Merge ka matlab hai **do branches ke code ko combine karna**.
+
+```bash
+git merge feature-login
+```
+
+---
+
+## 7️⃣ Git conflict kya hota hai?
+
+**Answer:**
+Jab **same file ke same line** par multiple branches alag changes karti hain aur Git automatically decide nahi kar pata — conflict aata hai.
+
+---
+
+## 8️⃣ Git conflict kaise resolve karte ho?
+
+**Answer:**
+
+* Conflict file open
+* Correct code select
+* Conflict markers remove
+* `git add` + `git commit`
+
+---
+
+## 9️⃣ `git fetch` aur `git pull` me difference?
+
+**Answer:**
+
+* `git fetch` → sirf remote changes lata hai
+* `git pull` → fetch + merge dono karta hai
+
+---
+
+## 🔟 `git status` ka use?
+
+**Answer:**
+Working directory ki current state batata hai:
+
+* Modified files
+* Staged files
+* Untracked files
+
+---
+
+## 1️⃣1️⃣ `git add` aur `git commit` difference?
+
+**Answer:**
+
+* `git add` → staging area me dalta hai
+* `git commit` → permanent history banata hai
+
+```bash
+git add .
+git commit -m "Added login feature"
+```
+
+---
+
+## 1️⃣2️⃣ `git reset` vs `git revert`?
+
+**Answer:**
+
+| reset                    | revert                  |
+| ------------------------ | ----------------------- |
+| History change karta hai | History safe rakhta hai |
+| Local use                | Production safe         |
+| Commit delete            | New commit create       |
+
+---
+
+## 1️⃣3️⃣ `git stash` kya hai?
+
+**Answer:**
+Temporary changes ko side me rakh deta hai bina commit kiye.
+
+```bash
+git stash
+git stash pop
+```
+
+---
+
+## 1️⃣4️⃣ Pull Request (PR) kya hota hai?
+
+**Answer:**
+PR ek request hoti hai jisme aap apna code **review ke liye** kisi branch (usually `main`) me merge karne ke liye bhejte ho.
+
+---
+
+## 1️⃣5️⃣ Real-world Git workflow explain karo
+
+**Answer:**
+
+1. `main` branch stable hoti hai
+2. Feature ke liye new branch banti hai
+3. Code complete → PR create
+4. Review → merge
+5. Main branch update
+
+---
+
+## 🔹 BONUS – 3 One-line interview questions
+
+### 🔸 `.gitignore` kya karta hai?
+
+Unwanted files ko Git tracking se ignore karta hai.
+
+### 🔸 HEAD kya hota hai?
+
+Current branch ka latest commit reference.
+
+### 🔸 Detached HEAD kya hota hai?
+
+Jab aap directly kisi commit par checkout karte ho, branch par nahi.
+
+---
+
+## 🔹 Interview tip 🧠
+
+Agar answer short lag raha ho to ye line add kar do:
+
+> “In real projects, hum feature-based branching aur PR-based workflow follow karte hain.”
+
+---
+
+Agar chaho to next:
+1️⃣ **Git commands ka daily workflow (QA/Automation focused)**
+2️⃣ **Rebase vs Merge (conflict ke saath)**
+3️⃣ **GitHub PR ka end-to-end flow diagram**
+4️⃣ **Advanced Git questions (5+ years experience)**
+
+Bas bolo bhai 🔥

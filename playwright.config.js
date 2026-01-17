@@ -24,8 +24,8 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
-  /* Set test timeout to 30 seconds */
-  timeout: 30 * 1000,
+  /* Set test timeout to 120 seconds */
+  timeout: 120 * 1000,
   /* Set expect timeout to 5 seconds */
   expect: {
     timeout: 5 * 1000,
@@ -43,8 +43,9 @@ export default defineConfig({
     */
     screenshot: "on",
     video: "on",
+  
     browserName : "chromium",
-    trace : "retain-on-failure",  //of -on failure only capture in playwright 
+    trace : "on",  //of -on failure only capture in playwright 
 
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
