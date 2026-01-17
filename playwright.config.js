@@ -14,7 +14,6 @@ import { defineConfig, devices } from "@playwright/test";
  */
 export default defineConfig({
   testDir: "./tests",
-  testIgnore: ["**/api/**", "**/axesXpath.spec.js", "**/pwBuiltinLocator.spec.js"],
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -24,10 +23,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
-    ["html"],
-    ["allure-playwright"],
-  ],
+  reporter: "html",
   /* Set test timeout to 120 seconds */
   timeout: 120 * 1000,
   /* Set expect timeout to 5 seconds */
@@ -61,20 +57,8 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium-iPhone-15-Plus',
-      use: {
-        browserName: 'chromium',
-        headless: false, // run in headless mode
-        screenshot: 'on',
-        video: 'retain-on-failure', // capture video only when test fails
-        ignoreHTTPSErrors: true,
-        permissions: ['geolocation'], // allow geolocation permission
-        geolocation: { latitude: 12.9716, longitude: 77.5946 }, // Bangalore location
-        // viewport: { windowSize: { width: 414, height: 896 } },
-        trace: 'on', // off/on will come in zip file
-        //...devices['iPhone 15 Plus'],
-        viewport: { width: 720, height: 720 }
-      },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     // Firefox and WebKit projects removed to run tests only on Chromium.

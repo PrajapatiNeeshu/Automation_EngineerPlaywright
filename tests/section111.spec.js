@@ -1,5 +1,5 @@
 import { test, expect, request } from '@playwright/test';
-import { APiUtils } from '../utils/APiUtils.js';
+import { APiUtils } from './utils/APiUtils.js';
 import AxeBuilder from '@axe-core/playwright'; // 1
 const loginPayLoad = { userEmail: "neeshubiet@gmail.com", userPassword: "Nee@kumar123" };
 const orderPayLoad = { orders: [{ country: "India", productOrderedId: "67a8dde5c0d3e6622a297cc8" }] };

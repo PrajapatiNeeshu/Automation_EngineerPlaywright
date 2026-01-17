@@ -1,4 +1,4 @@
-import { test, devices, chromium } from '@playwright/test';
+const { test, devices, chromium } = require('@playwright/test');
 
 test('Test mobile layout on iPhone 12', async ({}) => {
   const browser = await chromium.launch();
