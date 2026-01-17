@@ -10,23 +10,15 @@
     "test:signup": "PWHEADLESS=0 cucumber-js --tags @signup",
     "test:search": "PWHEADLESS=0 cucumber-js --tags @search",
     "test:regression": "cucumber-js --tags @regression",
-    "test:parallel": "cucumber-js --parallel 2",
-    "regression": "npx playwright test --config=playwright.config.js tests/section9.spec.js --grep @regression",
-    "webATests": "npx Playwright test --grep @web",
-    "APITests": "npx Playwright test --grep @API",
-    "safariTests": "npx Playwright test --config=playwright.config.js --project=webkit",
-    "headedTests": "npx Playwright test --config=playwright.config.js --headed",
-    "traceViewer": "npx playwright show-trace trace.zip",
-    "generateAllureReport": "npx allure generate allure-results -o allure-report && npx allure open allure-report"
+    "test:parallel": "cucumber-js --parallel 2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@axe-core/playwright": "^4.11.0",
     "@playwright/test": "^1.57.0",
     "@types/node": "^24.10.0",
-    "allure-playwright": "^3.4.5",
+    "allure-playwright": "^3.4.4",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
