@@ -25,3 +25,5 @@ export class LoginPage {
     await expect.soft(this.passwordInput).toBeVisible();
   }
 }
+
+export default LoginPage;

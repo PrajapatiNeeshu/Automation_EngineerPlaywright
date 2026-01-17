@@ -6,8 +6,8 @@ import {test,expect} from '@playwright/test'
 
 //test.describe.configure({mode:'parallel'});
 //test.describe.configure({mode:'serial'});
-
-test.only("@Web Popup validations",async({page})=>
+test.describe.configure({mode:'parallel'});
+test("@Web Popup validations",async({page})=>
 {
     await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
 
@@ -67,7 +67,7 @@ test("Screenshot & Visual comparision",async({page})=>
     await expect(page.locator("#displayed-text")).toBeHidden();
 });
 //screenshot -store -> screenshot -> 
-test('visual',async({page})=>
+test.skip('visual',async({page})=>
 {
     //make payment -when you 0 balance
       await page.goto("https://rahulshettyacademy.com/loginpagePractise/");

@@ -1,8 +1,8 @@
 
 // import { testUser4 } from './testUser1.js';
 
-import { count } from "console";
-import { isConciseBody } from "typescript";
+// import { count } from "console";
+// import { isConciseBody } from "typescript";
 
 
 
@@ -631,75 +631,587 @@ print("the print on the python methods
 // let fri = 'deepika';
 
 
-// // fri[3] = 's' // string are immutable so it will not change the value
+// // // fri[3] = 's' // string are immutable so it will not change the value
+// // // console.log(fri)
+
+// // fri = 'deepsha' // reasigning the value it will change the value
 // // console.log(fri)
 
-// fri = 'deepsha' // reasigning the value it will change the value
-// console.log(fri)
+// console.log("array in javascriptd");//collection of item can access with index number
+// let arr1 = [1,2,3,4,5,false,'neeshu'];
+// console.log(arr1);
+// console.log(arr1.length);
+// console.log(arr1[2]);
+// arr1[2] = 10; // reasigning the value
+// console.log(arr1);
+// // arr1.push(6); // add the element at last index
+// // console.log(arr1);
+// // arr1.pop(); // remove the last element
+// // console.log(arr1);
+// // arr1.unshift(0); // add the element at first index
+// // console.log(arr1);
+// // arr1.shift(); // remove the first element
+// // console.log(arr1);
+// // console.log(arr1.indexOf(4)); // get the index of element
+// // console.log(arr1.includes(5)); // check the element present or not return true and false value
+// // for (let i=0;i<arr1.length;i++){
+// //   console.log(arr1[i]);
+// // }
+// // // sum of array
+// // let sum =0;
+// // for (let j=0;j<arr1.length;j++){
+// //   sum += arr1[j];
+// // }
+// // console.log("sum of array===>",sum);
 
-console.log("array in javascriptd");//collection of item can access with index number
-let arr1 = [1,2,3,4,5,false,'neeshu'];
-console.log(arr1);
-console.log(arr1.length);
-console.log(arr1[2]);
-arr1[2] = 10; // reasigning the value
-console.log(arr1);
-arr1.push(6); // add the element at last index
-console.log(arr1);
-arr1.pop(); // remove the last element
-console.log(arr1);
-arr1.unshift(0); // add the element at first index
-console.log(arr1);
-arr1.shift(); // remove the first element
-console.log(arr1);
-console.log(arr1.indexOf(4)); // get the index of element
-console.log(arr1.includes(5)); // check the element present or not return true and false value
-for (let i=0;i<arr1.length;i++){
-  console.log(arr1[i]);
+// // // array methods : reduce, filter, map
+// // console.log("array methods : reduce, filter, map");
+
+// // let total = arr1.reduce((sum, val)=> sum+val,0);
+// // console.log("total of array using reduce method===>",total);
+
+// // let evenArr = arr1.filter((num)=> num%2==0);
+// // console.log("even array using filter method===>",evenArr);
+
+// // let mappedArr = evenArr.map((num)=> num*3);
+// // console.log("mapped array using map method===>",mappedArr);
+
+// // let totalMapped = mappedArr.reduce((sum,val)=> sum+val,0);
+// // console.log("total of mapped array using reduce method===>",totalMapped);
+
+// // // chaining all methods
+// // let chainedResult = arr1.filter(num=>num%2==0).map(num=>num*3).reduce((sum,val)=>sum+val,0);
+// // console.log("chained result of all methods===>",chainedResult);
+
+// // // sorting array
+// // let fruits = ['banana', 'mango', 'apple', 'grapes'];
+// // console.log("original fruits array===>",fruits);
+// // console.log("sorted fruits array===>",fruits.sort());
+// // let numbers = [34, 2, 45, 67, 1, 89];
+// // console.log(numbers.toString());
+// // console.log(numbers.join("_"))
+// // console.log(typeof numbers)
+// // console.log("original numbers array===>",numbers);
+// // console.log("sorted numbers array (lexicographical)===>",numbers.sort());
+// // numbers.sort((a,b)=>a-b);
+// // console.log("sorted numbers array (numerical)===>",numbers);
+// // console.log("reversed fruits array===>",fruits.reverse());
+
+// // //aaray are immutable in js but we can change the elements by index
+// // //array can haold multiple value type
+
+// // for(let i=0;i<fruits.length;i++){
+// //   console.log(fruits[i]);
+
+// // }
+
+
+// var n = 5;
+// console.log(n);
+// var n = 20; // reassigning is allowed and redecralred allowed based on function scoped globally scope.
+// console.log(n);
+
+// let  r= 70;
+// r = 100; // Value can be updated
+// //let r = 15; //can not redeclare
+// console.log(r)
+
+// const b = 88;
+// console.log(b);
+// //b = 99; // can not reassign
+// //const b = 55; // can not redeclare
+// console.log("null === undefined",null === undefined)
+// Result: false
+// /**
+//  * 
+//  * 
+//  * In JavaScript, both null and undefined represent "empty" values but are distinct types. null is a special object representing the intentional absence of a value, while undefined signifies that a variable has been declared but not assigned a value. Despite their similar purpose, they are not strictly equal (===) to each other.
+
+// null === undefined evaluates to false because JavaScript does not perform type coercion with ===.
+//  */
+// console.log("5 > 3 > 2",5 > 3 > 2)
+// Result: false
+// /*
+
+// At first glance, this expression may appear to be checking if 5 is greater than 3 and 3 is greater than 2, but JavaScript evaluates it left-to-right due to its operator precedence.
+
+// First, 5 > 3 evaluates to true.
+// Then, true > 2 is evaluated, which in JavaScript results in 1 > 2 (since true is coerced to 1), which evaluates to false.
+
+// */
+
+
+
+
+// /**console.log([] === []);
+//  * Result: false
+//  * In JavaScript, arrays are objects. Even if two arrays have the same content, they are still different objects in memory.
+
+// When you compare two arrays with ===, you are comparing their references, not their contents.
+// Since [] and [] are different instances in memory, the result is false.
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */
+// console.log("10" < "9") 
+// Result: true
+
+// /**
+//  * 
+//  * 
+//  * When JavaScript compares strings, it compares their Unicode values lexicographically (character by character).
+
+// "10" is compared to "9". Since "1" has a lower Unicode value than "9", JavaScript determines that "10" is less than "9".
+// This comparison might seem counterintuitive, but it's due to JavaScript's string comparison mechanism.
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */
+// console.log("NaN === NaN",NaN === NaN)
+// Result: false
+// /**
+//  * 
+//  * 
+//  * In JavaScript, NaN (Not-a-Number) is a special value that represents an invalid number or the result of an operation that cannot produce a valid number.
+
+// One of the most unusual aspects of NaN is that it is not equal to itself. This behavior exists due to the design of the IEEE 754 standard, which JavaScript follows for floating-point arithmetic.
+// As a result, NaN === NaN returns false.
+//  */
+
+// console.log("undefined > 0===>",undefined > 0)
+// Result: false
+
+// /**
+//  * 
+//  * 
+//  * 
+//  * When JavaScript attempts to compare undefined with 0, it converts undefined to NaN (Not-a-Number). Any comparison involving NaN returns false.
+
+// undefined > 0 becomes NaN > 0, which evaluates to false.
+//  */
+
+// console.log("[1, 2] == [1, 2]==>","5" === 5)
+// Result: false
+
+// console.log("[1, 2] == [1, 2]",[1, 2] == [1, 2])
+// Result: false
+
+// /**
+//  * 
+//  * 
+//  * Even though both arrays contain the same elements, JavaScript compares arrays by reference, not by value.
+
+// Since each array is a separate object in memory, their references are different, and thus the comparison returns false.
+// To check if two arrays are equal, you must compare their contents element by element.
+//  */
+
+// console.log("Infinity > 1000",Infinity > 1000)
+
+// Result: true
+// /**
+//  * 
+//  * In JavaScript, Infinity represents an unbounded, positive number. It's greater than any finite number, including 1000.
+
+// Therefore, Infinity > 1000 evaluates to true.
+//  */
+
+
+
+
+// let g = 89;
+// g += 11; // g = g + 11
+// console.log(g); // 100
+// g -= 20; // g = g - 20
+// console.log(g); // 80
+// g *= 2; // g = g * 2
+// console.log(g);
+
+// const age = 18;
+// const status = age <= 18 ? "Adult" : "Minor";
+// console.log(status);
+// const a = true, i = false;
+// console.log(a && i); // Logical AND
+// console.log(a || i); // Logical OR
+// //!==.
+// //write code for logical not
+// const name = "Neeshu";
+// const isAdmin = name === "Admin" ? true : false;
+// console.log(!a); // Logical NOT
+// Result: false
+// /**
+//  * 
+//  * 
+//  * The !== operator checks for both value and type inequality. In this case, true is a boolean and 1 is a number. Since their types are different, the comparison returns true.
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */console.log("5" + 3)
+// Result: "53"
+// /**
+//  * 
+//  * 
+//  * In JavaScript, the + operator is overloaded to perform both addition and string concatenation. When one of the operands is a string, JavaScript converts the other operand to a string and concatenates them.
+
+// In this case, "5" is a string and 3 is a number. JavaScript converts 3 to "3" and concatenates it with "5", resulting in the string "53".
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */console.log("5" - 3)
+// Result: 2
+// /**
+//  * 
+//  * 
+//  * In this case, the - operator is only defined for numbers. When one of the operands is a string, JavaScript attempts to convert it to a number.
+
+// Here, "5" is converted to the number 5, and then 3 is subtracted from it, resulting in 2.
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */console.log(null + 1)
+// Result: 1
+// const obj = { length: 10 };
+// console.log("length" in obj);
+// console.log([] instanceof Array);
+// console.log({} instanceof Object);
+// /**
+//  * 
+//  * 
+//  * The in operator checks if a specified property exists in an object. In this case, it checks if the property length exists in the obj object, which it does, so it returns true.
+
+// The instanceof operator checks if an object is an instance of a specific class or constructor function. Here, [] is indeed an instance of Array, so it returns true. Similarly, {} is an instance of Object, so it also returns true.
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */console.log(typeof null)
+// Result: "object"
+// /**
+//  * 
+//  * 
+//  * In JavaScript, the typeof operator returns "object" for null values. This is a well-known quirk of the language and is due to historical reasons dating back to the early implementation of JavaScript.
+
+// Although null is not actually an object, the typeof operator treats it as such, which can sometimes lead to confusion.
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */console.log(typeof NaN)
+// Result: "number"
+// /**
+//  * 
+//  * 
+//  * In JavaScript, NaN (Not-a-Number) is considered a special numeric value. The typeof operator returns "number" for NaN because it is part of the number type in JavaScript.
+
+// This behavior can be counterintuitive, but it is consistent with the language's design.
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */console.log(typeof function(){})
+// Result: "function"
+// /**
+//  * 
+//  * 
+//  * In JavaScript, functions are first-class objects, and the typeof operator returns "function" when applied to a function. This is a special case in the language to distinguish functions from other object types.
+
+// So, when you check the type of a function using typeof, it correctly identifies it as a "function".
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */console.log(typeof [])
+// Result: "object"
+// /**
+//  * 
+//  * 
+//  * In JavaScript, arrays are a type of object. When you use the typeof operator on an array, it returns "object" because arrays are implemented as objects in the language.
+
+// To specifically check if a variable is an array, you can use Array.isArray() method.
+//  * 
+//  * 
+//  * 
+//  * 
+//  * 
+//  */console.log(typeof undefined)
+// Result: "undefined"
+// /**
+//  * 
+//  * 
+//  * In JavaScript, the typeof operator returns "undefined" for variables that have not been assigned a value. This is the expected behavior, as undefined is a primitive type in JavaScript that represents the absence of a value.
+// So, when you check the type of an undefined variable using typeof, it correctly identifies it as "undefined".
+// */
+
+
+// const objk = { name: "Aman", address: { city: "Delhi" } };
+// console.log(objk.address?.city);
+// console.log(objk.contact?.phone);
+
+
+
+// console.log("switch case in javascriptd=========>");
+
+// let num = 2;
+
+// switch (num) {
+//     case 0:
+//         console.log("Number is zero.");
+//         break;
+//     case 1:
+//         console.log("Nuber is one.");
+//         break;
+//     case 2:
+//         console.log("Number is two.");
+//         break;
+//     default:
+//         console.log("Number is greater than 2.");
+// };
+
+// let number = -67;
+
+// let result = number >= 0 ? "Positive" : "Negative";
+
+// console.log(`The number is ${result}.`);
+
+
+
+// for (let i = 0; i <= 4; i++) {
+//   if (i % 2 == 0) {
+//     console.log(i);
+//   }
+// };
+
+
+// let t = 1;
+
+// while (t <= 5) {
+//     console.log(t);
+//     t++;
+// }
+
+
+// let y = 1;
+
+// do {
+//     console.log(y);
+//     y++;
+// } while (y <= 5);
+
+// function addNumber (a,b){
+//     return a+b;
+//     //return console.log(a+b);
+//    //return console.log("this is after return statement");
+// }
+// console.log(addNumber(10,20));
+
+// let sumOfNumber = (x,y) => x+y;
+// console.log(sumOfNumber(30,40));
+
+
+// function greet(name) {   // 'name' is a parameter
+//   console.log("Hello " + name);
+
+// }
+
+// greet("Alice");  // "Alice" is the argument
+
+// /**
+//  * 
+//  * Parameter → name (placeholder inside the function).
+// Argument → "Alice" (real value given at call time).
+//  */
+
+
+
+
+// function NewFunction(name = "Guest") {
+//   console.log("Hello, " + name);
+// }
+
+// NewFunction();        // Hello, Guest (default used)
+// NewFunction("Aman");  // Hello, Aman
+
+
+// function add(a, b) {
+//   return a + b; // returns the sum
+// }
+
+// let result1 = add(5, 10);
+// console.log(result1); // 15
+
+// console.log("1. Named Functions");
+
+// /**
+//  * 
+//  * @returns A function that has its own name when declared. It’s easy to reuse and debug because the name shows up in error messages or stack traces.
+//  */
+// function greet2() {
+//   return "Hello!";
+// }
+// console.log(greet2()); // Hello!
+
+
+// console.log(". Anonymous Function");
+
+
+/**
+ * 
+ * A function that does not have a name. It is usually assigned to a variable or used as a callback. Since it has no name, it cannot be called directly.
+ * 
+ * 
+ */
+
+// const greet5 = function() {
+//   return "Hi there!";
+// };
+// console.log(greet5()); // Hi there!
+//  console.log(" Function Expression==>");
+//  /**
+//   * 
+//   * @param {
+//   * When you assign a function (can be named or anonymous) to a variable. The function can then be used by calling that variable.} a 
+//   * @param {*} b 
+//   * @returns 
+  
+// const add34 = function(a, b) {
+//   return a + b;
+// };
+// console.log(add34(2, 3)); // 5
+// console.log(" Arrow Function (ES6)");
+
+/**
+ * A new way to write functions using the => syntax. They are shorter and do not have their own this binding, which makes them useful in some cases.
+ */
+
+// const square = n => n * n;
+// console.log(square(4)); // 16
+
+// console.log(" Callback Functions");
+
+/**
+ * A function that is passed as an argument to another function and is executed after some operation is completed.
+ */
+
+// function fetchData(callback) {
+//   // Simulate a data fetch with a timeout
+//   setTimeout(() => {
+//     const data = "Sample Data";
+//     callback(data); // Call the callback with the fetched data
+//   }, 1000);
+// }
+
+// function displayData(data) {
+//   console.log("Fetched Data:", data);
+// }
+
+// fetchData(displayData); // After 1 second, logs: Fetched Data: Sample Data
+
+
+
+// function num12(n, callback) {
+//     return callback(n);
+// }
+
+// const double = (n) => n * 2;
+
+// console.log(num12(5, double));
+
+// console.log("closoure function in javascriptd=========>");
+// function outer() {
+//     let outerVar = "I'm in the outer scope!";
+//     function inner() {
+//         console.log(outerVar); 
+//         outerVar = "Updated"
+//     }
+//     return inner;  
+// }
+// const closure = outer(); 
+// closure();
+// closure();
+
+
+
+// const conditional = function(name) {
+//     return `Hello, ${name}!`;
+// };
+// console.log(conditional("Steven"));
+
+// const conditional2 = name => {
+//     return `hello ${name}`;
+// }
+
+console.log("object in javascriptd=========>");
+
+
+let object = {
+    name: "Sourav",
+    age: 23,
+    job: "Developer"
+};
+console.log(object);
+console.log(object.name);
+console.log(object['age']);
+
+object.location = "India";
+console.log(object);
+
+delete object.job;
+console.log(object);
+
+console.log("name" in object); // true
+console.log("salary" in object); // false
+
+for (let key in object) {
+    console.log(`${key}: ${object[key]}`);
 }
-// sum of array
-let sum =0;
-for (let j=0;j<arr1.length;j++){
-  sum += arr1[j];
+
+
+let obj1 = { model: "Tesla" };
+obj1.color = "Red";
+
+console.log(obj1);
+
+
+
+let obj9 = { name: "Sourav" };
+let obj10 = { age: 23};
+
+let obj3 = { ...obj9, ...obj10 };
+console.log(obj3);
+
+
+console.log("constructor function in javascriptd=========>");
+class Person {
+    constructor(name, age) {
+        this.n = name;
+        this.a = age;
+        this.sayHello = function() {
+            console.log(`My name is ${this.n} and I am ${this.a} years old.`);
+        };
+    }
 }
-console.log("sum of array===>",sum);
+const person1 = new Person("Sourav", 23);
+person1.sayHello();
+const person2 = new Person("Aman", 30);
+person2.sayHello();
 
-// array methods : reduce, filter, map
-console.log("array methods : reduce, filter, map");
 
-let total = arr1.reduce((sum, val)=> sum+val,0);
-console.log("total of array using reduce method===>",total);
-
-let evenArr = arr1.filter((num)=> num%2==0);
-console.log("even array using filter method===>",evenArr);
-
-let mappedArr = evenArr.map((num)=> num*3);
-console.log("mapped array using map method===>",mappedArr);
-
-let totalMapped = mappedArr.reduce((sum,val)=> sum+val,0);
-console.log("total of mapped array using reduce method===>",totalMapped);
-
-// chaining all methods
-let chainedResult = arr1.filter(num=>num%2==0).map(num=>num*3).reduce((sum,val)=>sum+val,0);
-console.log("chained result of all methods===>",chainedResult);
-
-// sorting array
-let fruits = ['banana', 'mango', 'apple', 'grapes'];
-console.log("original fruits array===>",fruits);
-console.log("sorted fruits array===>",fruits.sort());
-let numbers = [34, 2, 45, 67, 1, 89];
-console.log(numbers.toString());
-console.log(numbers.join("_"))
-console.log(typeof numbers)
-console.log("original numbers array===>",numbers);
-console.log("sorted numbers array (lexicographical)===>",numbers.sort());
-numbers.sort((a,b)=>a-b);
-console.log("sorted numbers array (numerical)===>",numbers);
-console.log("reversed fruits array===>",fruits.reverse());
-
-//aaray are immutable in js but we can change the elements by index
-//array can haold multiple value type
-
-for(let i=0;i<fruits.length;i++){
-  console.log(fruits[i]);
+function GFG(a, b, c) {
+    this.A = a;
+    this.B = b;
+    this.C = c;
+    this.G = "GEEK";
 }
