@@ -33,7 +33,8 @@ const config = {
       use: {
 
         browserName : 'chromium',
-        headless : true,
+        headless : true,// will run in browser mode it will not  be visible so far mak et good .
+         
         screenshot : 'on',
         video: 'retain-on-failure', // capture video only when test fails
         ignoreHttpsErrors:true,
