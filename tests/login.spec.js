@@ -1,6 +1,6 @@
 // Playwright spec for Login Page using POM
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/login.page.js';
+import LoginPage from '../pageObjects/LoginPage.js';
 
 test.describe('E-commerce Login Page', () => {
   test('should login with valid credentials', async ({ page }) => {
