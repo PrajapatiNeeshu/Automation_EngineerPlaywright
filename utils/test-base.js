@@ -5,12 +5,12 @@ export const customtest = test.extend({
         {
             username: "neeshubiet@gmail.com",
             password: "Nee@kumar1234",
-            productName: "iphone 13 pro"
+            productName: "ZARA COAT 3"
         },
         {
             username: "neeshubiet@gmail.com",
             password: "Nee@kumar1234",
-            productName: "Zara coat 3"
+            productName: "ZARA COAT 3"
         }
     ]
 });
