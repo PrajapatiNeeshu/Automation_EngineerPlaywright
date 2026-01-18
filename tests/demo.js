@@ -11,3 +11,12 @@ function add (a,b){
 }
 add(10,20)
 console.log(add(10,20))
+
+let user2 ={
+  name:"Jane",
+  age:45,
+  isadmin:true
+}
+user2.location="USA"
+console.log(user2.name);
+console.log(user2.location);
