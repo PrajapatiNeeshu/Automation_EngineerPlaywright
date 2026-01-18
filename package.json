@@ -17,7 +17,9 @@
     "safariTests": "npx Playwright test --config=playwright.config.js --project=webkit",
     "headedTests": "npx Playwright test --config=playwright.config.js --headed",
     "traceViewer": "npx playwright show-trace trace.zip",
-    "generateAllureReport": "npx allure generate allure-results -o allure-report && npx allure open allure-report"
+    "generateAllureReport": "npx allure generate allure-results -o allure-report && npx allure open allure-report",
+    "cucumberRegression" : "npx cucumber-js features/Ecommerce.feature --parallel 2 --exit --format html:cucumber-report.html --retry 1"
+
   },
   "keywords": [],
   "author": "",
