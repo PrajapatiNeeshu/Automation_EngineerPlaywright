@@ -47,7 +47,7 @@ const test_1 = require("@playwright/test");
     //text not an attribute
     //sometimes not have any attribute most of the time by get bytext
     //const text:Locator = page.getByText("Welcome to our store").toBeVisible()
-    yield (0, test_1.expect)(page.getByText("Welcome to our store")).toBeVisible();
+     expect(page.getByText("Welcome to our store")).toBeVisible();
     //await expect(page.getByText("welcome to")).toBeVisible(); // Passed substring
     //await expect(page.getByText(/welcome\s+To\s+Our|s+Store/i)).toBeVisible();
     //page.getByText() to locate by text content. "Welcome to our store" provieded wil be substring and it will works

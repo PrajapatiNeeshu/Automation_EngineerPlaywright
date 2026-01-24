@@ -1,0 +1,105 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "ecommerce-validation;placing-the-order",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "placing the order",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2598717846
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "login to Ecommerce application with \"neeshubiet@gmail.com\" and \"Nee@kumar1234\"",
+            "match": {
+              "location": "file:/Users/apple/Downloads/JavaScriptsBasic/jsBasic/Automation_EngineerPlaywright/features/step_defination/step.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2209098515
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "add \"Zara coat 3\" to cart",
+            "match": {
+              "location": "file:/Users/apple/Downloads/JavaScriptsBasic/jsBasic/Automation_EngineerPlaywright/features/step_defination/step.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2736246178
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "verify \"Zara coat 3\" is displayed in cart",
+            "match": {
+              "location": "file:/Users/apple/Downloads/JavaScriptsBasic/jsBasic/Automation_EngineerPlaywright/features/step_defination/step.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36130838
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "Enter valid details and placing the order",
+            "match": {
+              "location": "file:/Users/apple/Downloads/JavaScriptsBasic/jsBasic/Automation_EngineerPlaywright/features/step_defination/step.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 794030997
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "verify order in present in the Orderhistory page",
+            "match": {
+              "location": "file:/Users/apple/Downloads/JavaScriptsBasic/jsBasic/Automation_EngineerPlaywright/features/step_defination/step.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 407058661
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1656038090
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "ecommerce-validation",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Ecommerce Validation",
+    "tags": [],
+    "uri": "features/Ecommerce.feature"
+  }
+]

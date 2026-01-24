@@ -1,0 +1,4 @@
+Title via evaluate: Example Domain
+Dialog message: I am a JS Alert
+Dialog message: I am a JS Confirm
+Dialog message: I am a JS prompt

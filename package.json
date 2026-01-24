@@ -17,13 +17,16 @@
     "safariTests": "npx Playwright test --config=playwright.config.js --project=webkit",
     "headedTests": "npx Playwright test --config=playwright.config.js --headed",
     "traceViewer": "npx playwright show-trace trace.zip",
-    "generateAllureReport": "npx allure generate allure-results -o allure-report && npx allure open allure-report"
+    "generateAllureReport": "npx allure generate allure-results -o allure-report && npx allure open allure-report",
+    "cucumberRegression" : "npx cucumber-js features/Ecommerce.feature --parallel 2 --exit --format html:cucumber-report.html --retry 1"
+
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",
+    "@cucumber/cucumber": "^12.5.0",
     "@playwright/test": "^1.57.0",
     "@types/node": "^24.10.0",
     "allure-playwright": "^3.4.5",
@@ -32,7 +35,6 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^12.2.0",
     "@cucumber/pretty-formatter": "^2.3.0",
     "exceljs": "^4.4.0",
     "playwright": "^1.56.1"
