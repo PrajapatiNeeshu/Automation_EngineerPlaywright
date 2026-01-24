@@ -1153,65 +1153,313 @@ print("the print on the python methods
 //     return `hello ${name}`;
 // }
 
-console.log("object in javascriptd=========>");
+// console.log("object in javascriptd=========>");
 
 
-let object = {
-    name: "Sourav",
-    age: 23,
-    job: "Developer"
-};
-console.log(object);
-console.log(object.name);
-console.log(object['age']);
+// let object = {
+//     name: "Sourav",
+//     age: 23,
+//     job: "Developer"
+// };
+// console.log(object);
+// console.log(object.name);
+// console.log(object['age']);
 
-object.location = "India";
-console.log(object);
+// object.location = "India";
+// console.log(object);
 
-delete object.job;
-console.log(object);
+// delete object.job;
+// console.log(object);
 
-console.log("name" in object); // true
-console.log("salary" in object); // false
+// console.log("name" in object); // true
+// console.log("salary" in object); // false
 
-for (let key in object) {
-    console.log(`${key}: ${object[key]}`);
+// for (let key in object) {
+//     console.log(`${key}: ${object[key]}`);
+// }
+
+
+// let obj1 = { model: "Tesla" };
+// obj1.color = "Red";
+
+// console.log(obj1);
+
+
+
+// let obj9 = { name: "Sourav" };
+// let obj10 = { age: 23};
+
+// let obj3 = { ...obj9, ...obj10 };
+// console.log(obj3);
+
+
+// console.log("constructor function in javascriptd=========>");
+// class Person {
+//     constructor(name, age) {
+//         this.n = name;
+//         this.a = age;
+//         this.sayHello = function() {
+//             console.log(`My name is ${this.n} and I am ${this.a} years old.`);
+//         };
+//     }
+// }
+// const person1 = new Person("Sourav", 23);
+// person1.sayHello();
+// const person2 = new Person("Aman", 30);
+// person2.sayHello();
+
+
+// function GFG(a, b, c) {
+//     this.A = a;
+//     this.B = b;
+//     this.C = c;
+//     this.G = "GEEK";
+// }
+
+
+// let message = 'hello';
+// console.log(message);
+// message = 2;
+// console.log(message);
+// let age = 20;
+// let numbers = [1, 2, 3, 4, 5];
+// console.log(numbers);
+// function add (a,b){
+
+// const { useCallback } = require("react");
+
+//     return a+b
+// }
+// add(10,20)
+// console.log(add(10,20))
+
+// let user2 ={
+//   name:"Jane",
+//   age:45,
+//   isadmin:true
+// }
+// user2.location="USA"
+// console.log(user2.name);
+// console.log(user2.location);
+
+
+// console.log(x);   // ❓ kya hoga?
+// var x = 5;
+
+
+
+// foo();   // Call before declaration
+
+// function foo() {
+//   console.log("Hello");
+// }
+
+// function foo1() {
+//   console.log("Hello:-->");
+// }
+
+// foo1();
+
+// let y;   // declare ho gaya, but value nahi di
+// console.log(y);  // ❌ error (TDZ)
+// y = 10;
+// console.log(10 / "abc");   // NaN
+// console.log(Number("hello")); // NaN
+// console.log(0 / 0);        // NaN
+
+// console.log(NaN === NaN);   // false ❗
+
+// let salary = Number("5000abc"); 
+// console.log(salary);  // NaN
+
+// if (isNaN(salary)) {
+//   console.log("Invalid salary");
+// } else {
+//   console.log("Salary is valid");
+// }
+
+
+// function outer() {
+//   let count = 0;   // outer function variable
+
+//   function inner() {
+//     count++;       // inner function is using outer variable
+//     console.log(count);
+//   }
+
+//   return inner;    // inner function ko bahar bhej diya
+// }
+
+// const myFunc = outer();
+
+// myFunc(); // 1
+// myFunc(); // 2
+// myFunc(); // 3
+// function test() {
+//   console.log("Test function");
+// let count =0;
+// function nested() {
+//   console.log("Nested function");}
+//   count++;
+//   return nested;
+// }
+// const demo = test();
+// demo();//call outer function 
+// demo(); 
+
+// let str = 'Neeshu kumar kumar Neelam';
+// let reversed = '';
+// function reverseString(s) {
+//   for(let i = str.length-1; i >= 0; i--) {
+//   reversed  += str[i];
+// }
+// return reversed;
+// }
+// console.log(reverseString(str));
+
+
+// setTimeout(() => console.log(1), 0); 
+// console.log(2);
+
+// async function fetchData() { const data = await apiCall(); 
+//   return data; }
+
+//   setTimeout(() => {
+//   console.log("2 second baad chala");
+// }, 2000);
+
+
+
+// setTimeout(() => {
+//   console.log("4 sec ke baad chlana");
+// },4000);
+
+// setInterval(() => {
+//   console.log("Har 1 second me chala");
+// }, 1000);
+
+
+// async function riskyOperation() {
+//     try {
+//         const result = await someAsyncCall();
+//         if (!result) throw new Error("Operation failed");
+//         return result;
+//     } catch (error) {
+//         console.error("Error occurred:", error.message);
+//         return null; // or re-throw
+//     } finally {
+//         console.log("Cleanup - always runs");
+//     }
+// }
+
+
+/**
+ * 
+ * 
+ * Start
+ ↓
+try
+ ↓
+await async call
+ ↓
+success? ──► return result
+   ❌
+throw error
+ ↓
+catch
+ ↓
+handle error
+ ↓
+finally (always)
+
+
+
+async → function Promise return karta hai
+
+await → Promise ke resolve hone ka wait
+
+throw → custom error create karta hai
+
+catch → error handle karta hai
+
+finally → cleanup, always execute
+
+4️⃣ if (!result) throw new Error("Operation failed");
+❓ Ye line kyun?
+
+Agar result:
+
+null
+
+undefined
+
+false
+
+empty
+
+👉 To manually error throw kar diya
+ */
+
+
+///Rahul sheety Interview Question in Javascripts mak eit good
+
+
+/***
+ * 
+ * 
+ * 00:21 - Can a JavaScript object hold a function as a property? Explain with an example.
+
+03:28 - What are anonymous functions in JavaScript? Define their syntax and implementation.
+
+07:22 - What is the difference between var, const, and let? Explain with an example.
+
+16:26 - Where are the push, pop, slice, shift, and unshift methods used when accessing array elements?
+
+23:19 - Is JavaScript Asynchronous? Prove with an example.
+
+27:53 - What are callback functions in JavaScript?
+
+38:09 - What are promises in JavaScript? Explain the difference between callback functions and promises with an example.
+
+49:15 - Create an inheritance relationship between a parent and child class. Invoke the parent constructor from the child class. Create main.js to call parent class methods from a child class object.
+
+55:21 - From the above code, explain how the super and these keywords help achieve the solution.
+
+01:00:05 - What is the difference between == and ===?
+
+01:03:32 - What is the difference between null and undefined in JavaScript?
+
+01:06:36 - A classic programming interview question that involves using array methods (filter, map, reduce), and JavaScript objects.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
+const person = {
+name : "Neeshu",
+age : 78,
+greet : function(){
+
+  console.log("Helllo My name is " +this.name);
 }
-
-
-let obj1 = { model: "Tesla" };
-obj1.color = "Red";
-
-console.log(obj1);
-
-
-
-let obj9 = { name: "Sourav" };
-let obj10 = { age: 23};
-
-let obj3 = { ...obj9, ...obj10 };
-console.log(obj3);
-
-
-console.log("constructor function in javascriptd=========>");
-class Person {
-    constructor(name, age) {
-        this.n = name;
-        this.a = age;
-        this.sayHello = function() {
-            console.log(`My name is ${this.n} and I am ${this.a} years old.`);
-        };
-    }
 }
-const person1 = new Person("Sourav", 23);
-person1.sayHello();
-const person2 = new Person("Aman", 30);
-person2.sayHello();
+person.name
+person.greet();
 
+function sayhello(){
 
-function GFG(a, b, c) {
-    this.A = a;
-    this.B = b;
-    this.C = c;
-    this.G = "GEEK";
+    return "hello I am the hellow world"
 }
+const ft = sayhello();
+console.log(ft);
+//anamosy function function without name so maek it good in selection make it like this
+const greet =function(name){
+return "Hellow my name " +name
+}
+console.log(greet)
+

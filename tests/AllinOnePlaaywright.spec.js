@@ -15,7 +15,11 @@ test('1-2: Login and verify dashboard', async ({ page }) => {
   // const browser = await chromium.launch();
   // const context = await browser.newContext();
   // const page = await context.newPage();
-
+  //create context in width viewport
+  //
+  const context = await chromium.launch({ headless: false });
+  const page = await context.newPage();
+  await page.setViewportSize({ width: 1280, height: 720 });
   await page.goto('https://the-internet.herokuapp.com/login');
   await page.locator("#username").fill("neeshubiet@gmail.com");
   await page.locator("#password").fill("nee@kumar123");
@@ -130,7 +134,7 @@ test('8: Mobile emulation with iPhone 13', async ({ browser }) => {
   await context.close();
 });
 
-test.only('9: File upload and download', async ({ page }) => {
+test('9: File upload and download', async ({ page }) => {
   // Upload
   await page.goto('https://the-internet.herokuapp.com/upload');
     // 2. File ka path banao
@@ -154,7 +158,7 @@ test.only('9: File upload and download', async ({ page }) => {
 });
 
 
-test('10: New tabs and popup windows', async ({ context, page }) => {
+test('@popwindow 10: New tabs and popup windows', async ({ context, page }) => {
   // New tab
   await page.goto('https://the-internet.herokuapp.com/windows');
   const [newTab] = await Promise.all([
@@ -207,7 +211,7 @@ test('Handle new window (popup)', async ({ context, page }) => {
   await newWindow.close();
 });
 
-test('12: Mouse actions - double click, right click, hover', async ({ page }) => {
+test.only('12: Mouse actions - double click, right click, hover', async ({ page }) => {
   await page.goto('https://demoqa.com/buttons');
 
   // Double click
