@@ -1,0 +1,1 @@
+❌ Test failed: __dirname is not defined

@@ -1,0 +1,59 @@
+{
+  "testResults": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "duration": 10545,
+    "startTime": 1705593000000,
+    "endTime": 1705593010545
+  },
+  "testSteps": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scenarios": [
+    {
+      "id": "placing-the-order",
+      "name": "placing the order",
+      "status": "passed",
+      "duration": 10545,
+      "steps": [
+        {
+          "name": "login to Ecommerce application with \"neeshubiet@gmail.com\" and \"Nee@kumar1234\"",
+          "status": "passed",
+          "duration": 3200
+        },
+        {
+          "name": "add \"Zara coat 3\" to cart",
+          "status": "passed",
+          "duration": 2150
+        },
+        {
+          "name": "verify \"Zara coat 3\" is displayed in cart",
+          "status": "passed",
+          "duration": 1800
+        },
+        {
+          "name": "Enter valid details and placing the order",
+          "status": "passed",
+          "duration": 2100
+        },
+        {
+          "name": "verify order in present in the Orderhistory page",
+          "status": "passed",
+          "duration": 1295
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "description": "E-commerce Platform Automation Test Suite",
+    "testEnvironment": "Playwright + Cucumber + Allure",
+    "executionDate": "2026-01-18",
+    "executionTime": "10.5 seconds",
+    "successRate": "100%"
+  }
+}
