@@ -459,7 +459,30 @@ test('21: Authentication and Authorization API testing', async ({ request }) => 
     console.log(`GET ${endpoint} with Auth Response:`, data);
   }
 });
-
+//{
+//   "cookies": [
+//     {
+//       "name": "session_id",
+//       "value": "abc123",
+//       "domain": "example.com",
+//       "path": "/",
+//       "expires": -1,
+//       "httpOnly": true,
+//       "secure": true
+//     }
+//   ],
+//   "origins": [
+//     {
+//       "origin": "https://example.com",
+//       "localStorage": [
+//         {
+//           "name": "auth_token",
+//           "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+//         }
+//       ]
+//     }
+//   ]
+// }
 //API mocking and stubbing in playwright with 20 endpoints and test them in loop and print the results in console
 test('22: API mocking and stubbing', async ({ page }) => {
   const baseURL = 'https://jsonplaceholder.typicode.com';
@@ -571,6 +594,23 @@ export default defineConfig({
     //added project as well chromium and firefox
   },
 });
+
+// import { defineConfig } from '@playwright/test';
+
+// export default defineConfig({
+//   testDir: './tests',
+
+//   retries: 2,
+
+//   use: {
+//     baseURL: 'https://app.example.com',
+//     storageState: 'auth.json',
+//     screenshot: 'only-on-failure',
+//     video: 'retain-on-failure'
+//   },
+
+//   globalSetup: './global-setup'
+// });
 //create one login.js page class and user test case like this.
 //login.js
 
@@ -810,9 +850,35 @@ test('Handle web components', async ({ page }) => {
   const button = page.locator('vaadin-button');
   await button.click();
 });
+//const response = await apiContext.post('/users')
 
+// 6. API Automation Example
 
+// API response object hota hai.
 
+// Example 
+response:{
+"id": 101,
+"name": "John",
+"job": "QA"
+};
+const response = await apiContext.post('/users')
+
+const body = await response.json()
+
+const { id, name, job } = body
+
+console.log(id)
+// const users = ["admin","qa","manager"]
+
+// Normal:
+
+// const first = users[0]
+// const second = users[1]
+
+// Destructuring:
+
+// const [first, second] = users
 
 /*
 🌐 1️⃣ What is Web Component?
@@ -864,60 +930,38 @@ Link par click kiya →
 🚫 koi response hi nahi
 
 Reasons:
-
 server down
-
 DNS fail
-
 timeout
-
 Example
-https://abcxyz.com
-
-
+https://abcxyz.co
 request fail → dead link
-
 🔗 5️⃣ What is Broken Link?
 🧠 Meaning
-
 Link open hota hai
 but ❌ error deta hai
-
 404 → Not found
 500 → server error
-
 📊 Difference
 Dead link	Broken link
 No response	Error response
 Timeout	4xx / 5xx
 🤖 Playwright me broken link ka idea
 const res = await request.get(url);
-
 if (res.status() >= 400) {
   console.log('Broken');
 }
-
 🎯 Real interview one-line answers
 Web component
-
 Custom reusable HTML element with encapsulated DOM.
-
 Shadow DOM
-
 Hidden DOM tree inside an element.
-
 iframe
-
 A webpage embedded inside another webpage.
-
 Broken link
-
 Link returning 4xx/5xx status.
-
 Dead link
-
 Link that does not respond.
-
 ⭐ Ultra short memory trick
 Web component → custom tag
 Shadow DOM → hidden DOM
