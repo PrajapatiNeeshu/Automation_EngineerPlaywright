@@ -1,23 +1,18 @@
 console.log("reveresd string=====>")
-let str = "hello";
-let rev = "";
-for (let i = str.length - 1; i >= 0; i--) {
-  rev += str[i];
+let str122 = "hello";
+let rev212 = "";
+for (let i = str122.length - 1; i >= 0; i--) {
+  rev212 += str122[i];
 }
 console.log(rev);
 //done 10 Feb
-
 //kept first non reverse how can write the code for that question
 function reverseExceptFirst(str) {
   return str[0] + str.slice(1).split('').reverse().join('');
 }
-
 console.log(reverseExceptFirst('neeshu'));
-
 /*
-
 2️⃣ Last letter same, baaki reverse
-
 👉 u same rahega
 Logic:
 last letter alag karo
@@ -38,7 +33,6 @@ let result21 = str2121
   .map(word => word[0] + word.slice(1).split("").reverse().join(""))
   .join(" ");
 console.log(result21);
-
 //7️⃣ Remove duplicate characters
 let abc = 'aabbccddee';
 let uniqueArr1 = '';  
@@ -47,7 +41,25 @@ for (let ch of abc) {
     uniqueArr1 += ch;
 }
 console.log(uniqueArr1);
+/*
+let str = 'programming';
+let uni = '';
+for(let ch of str ){
+  if(!uni.includes(ch)){
+    uni += ch;
+  }
+}
+console.log(uni);
 
+let arr = [2,3,41,2,34,4,34,34,43]
+let uni = [];
+for(let ch of arr){
+  if(!uni.includes(ch)){
+    uni.push(ch);
+  }
+}
+console.log(uni);
+*/
 //4️⃣ Reverse each word (space same position)
 
 let str1211 = "UI automation testing";
@@ -56,7 +68,6 @@ let result1211 = str1211
   .map(word => word.split("").reverse().join(""))
   .join(" ");
 console.log(result1211);
-
 console.log("**************************************** Interview Questions *");
 console.log("Check Palindrome String")
 let str2 = "madam";
@@ -124,9 +135,9 @@ for(let ch in map){
 
 
 console.log("Group Anagrams==> ") // important question in js aksed alreayd in EY.
-let arr1 = ["eat", "tea", "tan", "ate", "nat", "bat"];
+let arr121221 = ["eat", "tea", "tan", "ate", "nat", "bat"];
 let anagramMap = {};
-for (let word of arr1) {
+for (let word of arr121221) {
   let sorted = word.split("").sort().join("");
   if (!anagramMap[sorted]) 
   anagramMap[sorted] = [];
@@ -134,6 +145,15 @@ for (let word of arr1) {
 }
 console.log(Object.values(anagramMap));
 
+
+let arr0001 = ['apple', 'APPLE', 'banana', 'BANANA', 'mango', 'MANGO'];
+
+for (let i = 0; i < arr0001.length; i++) {
+  if (arr0001[i] === arr0001[i].toLowerCase()) {
+    console.log(arr0001[i]);
+  }
+}
+//output will be apple, banana, mango.print lower Case with us.
 
 console.log("Check Anagram===>");
 let str55 = ["listen", "silent", "enlist", "inlets","dog","god"];
@@ -216,6 +236,18 @@ let seclowest = asc.find(num => num > asc[0]); // first number greater than min
 let secondHighest1 = des.find(num => num < des[0]); // first number smaller than max
 console.log(secondHighest1);
 
+
+
+/*
+let arr = [5, 9, 2, 7];
+let desc = [...arr].sort((a, b) => b - a); // descending sorted copy
+let asc = [...arr].sort((a, b) => a - b);  // ascending sorted copy
+let secondHighest = desc.find(num => num < desc[0]);
+console.log(secondHighest);
+let secondLowest = asc.find(num => num > asc[0]);
+console.log(secondLowest);
+
+*/
 // let arr = [5, 9, 2, 7];
 // let desc = arr.sort((a,b) => b-a);
 // let secondhigest = desc.find(num => num<desc[0]);
@@ -498,6 +530,12 @@ for (let ch of str001) {
 }
 console.log(result01);
 
+// 1. empty set
+// 2. loop
+// 3. already present?
+//    yes → skip
+//    no → add + use
+
 
 
 
@@ -517,6 +555,34 @@ for (let n in freqMap1) {
 }
 console.log(uniqueNumbers);
 
+// 🧠 🔥 MASTER PATTERN (same for all)
+// 1. ek Set / Map lo
+// 2. loop chalao
+// 3. check karo
+// 4. condition pe action
+
+// ✅ 1️⃣ UNIQUE STRING (order maintain)
+// Q
+// Input: "aabbccdde"
+// Output: "abcde"
+// 🧠 Logic
+// seen set
+// not present → add + result
+// present → skip
+
+
+let str22 = "aabbccdde";
+let seen2 = new Set();
+let result22 = "";
+
+for (let ch of str22) {
+  if (!seen2.has(ch)) {
+    seen2.add(ch);
+    result22 += ch;
+  }
+}
+
+console.log(result);
 //JavaScript program to remove all spaces from string
 console.log("Remove all spaces from string==>");
 let str0001 = "hello world qa";
@@ -526,6 +592,8 @@ for (let ch of str0001) {
   result0001 += ch;
 }
 console.log(result0001);
+let spt = str.split(" ").join("");
+console.log(spt);
 
 
 
@@ -548,8 +616,111 @@ for (let i = 1; i <= rows; i++) {
   }
   console.log(line.trim());
 }
+// * * * * *
+// * * * * *
+// * * * * *
+// * * * * *
+// * * * * *
+// 🧠 आसान language में याद रखने का तरीका
+// Pattern देखते ही:
+// ❓ खुद से ये 3 सवाल पूछो
+// 1️⃣ कितनी rows हैं?
+// 2️⃣ हर row में क्या बढ़ रहा है / घट रहा है?
+// 3️⃣ space चाहिए क्या?
+// बस answer मिल जाएगा.
 
+let n1 = 5;
+for (let i = 1; i <= n1; i++) {
+  let row = "";
 
+  for (let j = 1; j <= n; j++) {
+    row += "* ";
+  }
+
+  console.log(row);
+}
+// ⭐ 2️⃣ Right Triangle Pattern
+// *
+// * *
+// * * *
+// * * * *
+// * * * * *
+let n = 5;
+for (let i = 1; i <= n; i++) {
+  let row = "";
+  for (let j = 1; j <= i; j++) {
+    row += "* ";
+  }
+  console.log(row);
+}
+
+// ⭐ 3️⃣ Inverted Right Triangle
+// * * * * *
+// * * * *
+// * * *
+// * *
+// *
+let n = 5;
+
+for (let i = n; i >= 1; i--) {
+  let row = "";
+
+  for (let j = 1; j <= i; j++) {
+    row += "* ";
+  }
+
+  console.log(row);
+}
+
+// ⭐ 4️⃣ Pyramid Pattern
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+
+let n = 5;
+for (let i = 1; i <= n; i++) {
+  let spaces = " ".repeat(n - i);
+  let stars = "*".repeat(2 * i - 1);
+  console.log(spaces + stars);
+}
+// 🧠 Logic
+// spaces = n - row
+// stars = 2*i - 1
+
+// ⭐ 5️⃣ Diamond Pattern (Most Asked 🔥)
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+//  *******
+//   *****
+//    ***
+//     *
+
+let a = 5;
+// upper part
+for (let i = 1; i <= a; i++) {
+  console.log(" ".repeat(a - i) + "*".repeat(2 * i - 1));
+}
+
+// lower part
+for (let i = a - 1; i >= 1; i--) {
+  console.log(" ".repeat(a - i) + "*".repeat(2 * i - 1));
+}
+// हर pattern में 3 चीज़ सोचो:
+// 1️⃣ Rows कितनी?
+// 2️⃣ Spaces कितनी?
+// 3️⃣ Stars कितने?
+// बस pattern बन जाएगा 😍
+
+// 🧠 🪄 Pattern का Golden Rule
+// हर pattern में सिर्फ 3 चीज़ होती हैं:
+// 1️⃣ Rows (outer loop)
+// 2️⃣ Columns / Stars (inner loop)
+// 3️⃣ Spaces (optional)
 
 //another pattern
 console.log("Print character pattern==>");
@@ -566,15 +737,15 @@ for (let i = 1; i <= rows; i++) {
 
 
 
-console.log("**************************************** Interview Questions *");
-console.log("Remove duplicate characters and sort==>");
-let str2111 = "programming";
-let res211 = "";
-for (let ch of str2111) {
-  if (!res211.includes(ch)) 
-    res211 += ch;
-}
-console.log(res211);
+// console.log("**************************************** Interview Questions *");
+// console.log("Remove duplicate characters and sort==>");
+// let str2111 = "programming";
+// let res211 = "";
+// for (let ch of str2111) {
+//   if (!res211.includes(ch)) 
+//     res211 += ch;
+// }
+// console.log(res211);
 
 
 
@@ -630,7 +801,6 @@ for (let n of arr2) {
 console.log([...dups]);
 
 
-
 console.log("**************************************** Interview Questions *");
 console.log('Find common elements in two arrays');
 let arr3 = [1, 2, 3, 4];
@@ -645,12 +815,10 @@ for (let n of arr4) {
 let common1 = [...new Set(arr4.filter(n => set3.has(n)))];
 //2️⃣ Common count
 let count1 = arr4.filter(n => set3.has(n)).length;
-
 /*
 Array → convert to Set → fast search
 Loop second array → check → push common
 */
-
 let a111 = [1,2,3];
 let b111 = [3,4,5];
 let union = [...new Set([...a111, ...b111])];
@@ -660,7 +828,6 @@ let bv = [3,4,5];
 let setB = new Set(bv);
 let diff = av.filter(n => !setB.has(n));
 console.log(diff);
-
 
 //JavaScript program to find largest and smallest element in an array
 //write code above question
@@ -684,8 +851,6 @@ let n = arr5.length + 1; // total numbers should be 5
 let expectedSum = (n * (n + 1)) / 2; // sum of first n natural numbers
 let actualSum = arr5.reduce((a, b) => a + b, 0); // sum of elements in the array 0 is the initial value for the reduce function
 let missingNumber = expectedSum - actualSum;
-
-
 
 
 console.log(missingNumber);
@@ -733,8 +898,6 @@ for (let n of arr) {
   else odd++;
 }
 
-
-
 console.log(even, odd);
 console.log("Second largest");
 let arr212 = [5,9,2,7];
@@ -749,9 +912,6 @@ for (let n of arr212) {
 }
 console.log(second);
 
-
-
-
 console.log('Linear search===>');
 let target = 7;
 for (let i = 0; i < arr.length; i++) {
@@ -761,16 +921,40 @@ for (let i = 0; i < arr.length; i++) {
   }
 }
 
-
 console.log("sorted array===>");
-let arr11 = [5,3,8,1];
-for (let i = 0; i < arr11.length; i++) {
-  for (let j = 0; j < arr11.length - i - 1; j++) {
-    if (arr11[j] > arr11[j+1]) {
-      [arr11[j], arr11[j+1]] = [arr11[j+1], arr11[j]];
+// let arr11 = [5,3,8,1];
+// for (let i = 0; i < arr11.length; i++) {
+//   for (let j = 0; j < arr11.length - i - 1; j++) {
+//     if (arr11[j] > arr11[j+1]) {
+//       [arr11[j], arr11[j+1]] = [arr11[j+1], arr11[j]];
+//     }
+//   }
+// }
+
+let arr1 = [-1, 2, 3, 4, 5, 6, 7, 3, 5, 3, 32, 0];
+for (let i = 0; i < arr.length - 1; i++) {
+  for (let j = 0; j < arr.length - 1 - i; j++) {
+    if (arr[j] > arr[j + 1]) {
+      let temp = arr[j];
+      arr[j] = arr[j + 1];
+      arr[j + 1] = temp;
     }
   }
 }
+console.log(arr);
+
+//dsc
+let arr2121 = [-1, 2, 3, 4, 5, 6, 7, 3, 5, 3, 32, 0];
+for (let i = 0; i < arr2121.length - 1; i++) {
+  for (let j = 0; j < arr2121.length - 1 - i; j++) {
+    if (arr2121[j] < arr2121[j + 1]) {
+      let temp = arr2121[j];
+      arr2121[j] = arr2121[j + 1];
+      arr2121[j + 1] = temp;
+    }
+  }
+}
+console.log(arr2121);
 console.log(arr11);
 console.log("JavaScript program to find first and last element of an array")
 let arr111 = [1,2,3,4,5];
@@ -779,18 +963,28 @@ console.log("Last element:", arr111[arr111.length - 1]);
 
 
 
-console.log("JavaScript program to sort an array without using built-in sort method")
-let arr1111 = [5,2,9,1,5,6];
-for (let i = 0; i < arr1111.length; i++) {
-  for (let j = 0; j < arr1111.length - i - 1; j++) {
-    if (arr1111[j] > arr1111[j+1]) {
-      [arr1111[j], arr1111[j+1]] = [arr1111[j+1], arr1111[j]];
+// console.log("JavaScript program to sort an array without using built-in sort method")
+// let arr1111 = [5,2,9,1,5,6];
+// for (let i = 0; i < arr1111.length; i++) {
+//   for (let j = 0; j < arr1111.length - i - 1; j++) {
+//     if (arr1111[j] > arr1111[j+1]) {
+//       [arr1111[j], arr1111[j+1]] = [arr1111[j+1], arr1111[j]];
+//     }
+//   }
+// }
+// console.log(arr1111);
+
+let arrac = [5,2,9,1,5,6];
+for(let i =0;i<arrac.length-1;i++){
+  for(let j =0 ; j<arrac.length-1-i;j++){
+    if(arrac[j]>arrac[j+1]){
+        let temp = arrac[j]
+    arrac[j] = arrac[j+1]
+    arr[j+1] = temp;
     }
   }
 }
-console.log(arr1111);
-
-
+console.log(arr);
 //JavaScript program to calculate Factorial of a given number
 //write the code above question
 console.log("Factorial of a given number==>");
@@ -952,6 +1146,1599 @@ console.log(longest1111);
 
 
 
+console.log([] + []); // "" - empty string
+console.log([] + {});// "[object Object]" 
+console.log({} + []);// 0 - because {} is treated as an empty block, and +[] is 0
+console.log({} + {});// "[object Object][object Object]" - both are treated as empty blocks, so it concatenates their string representations
+console.log([1,2] + [3,4]);// "1,23,4" - both arrays are converted to strings and concatenated
+console.log("10" + 1);// "101" - number 1 is converted to string and concatenated
+console.log("10" - 1);// 9 - string "10" is converted to number and subtraction is performed
+console.log(true + "1");// "true1" - boolean true is converted to string and concatenated
+console.log(true + 1);// 2 - boolean true is converted to number 1 and addition is performed
+console.log(0 == false);// true - 0 is falsy, so it is equal to false
+console.log(0 === false);// false - different types (number vs boolean)
+console.log("" == 0);// true - empty string is falsy, so it is equal to 0
+console.log("" == 0);// false - different types (string vs number)
+console.log(null == undefined);// true - both null and undefined are considered equal in non-strict equality
+console.log(null === undefined);// false - different types (object vs undefined)
+console.log("5" == 5);// true - string "5" is converted to number 5 and compared
+console.log("5" === 5);// false - different types (string vs number)
+console.log(true == 1);// true - boolean true is converted to number 1 and compared
+console.log(true === 1);// false - different types (boolean vs number)
+console.log([] == 0);// true - empty array is falsy, so it is equal to 0
+console.log([] == false);// true - empty array is falsy, so it is equal to false
+console.log([1] == 1);// true - array with one element is converted to that element (1) and compared
+console.log([] == "");// true - empty array is converted to empty string and compared
+console.log([] == ![]);// true - ![] is false, so it is equal to empty array which is falsy
+console.log({} == {});// false - different object references
+console.log(0 === false);// false - different types (number vs boolean)
+console.log("" == 0);// true - empty string is falsy, so it is equal to 0
+console.log("" === 0);// false - different types (string vs number)
+console.log(null == undefined);// true - both null and undefined are considered equal in non-strict equality
+console.log(null === undefined);// false - different types (object vs undefined)
+console.log("5" == 5);// true - string "5" is converted to number 5 and compared
+console.log("5" === 5);// false - different types (string vs number)
+console.log(true + false);// 1 - true is 1 and false is 0, so addition gives 1
+console.log(null + 1);// 1 - null is treated as 0 in numeric context, so addition gives 1
+console.log(true + "5");// "true5" - boolean true is converted to string and concatenated
+console.log(undefined + 1);// NaN - undefined is treated as NaN in numeric context, so addition gives NaN
+console.log("5" + - "2");// "5-2" - unary minus converts "2" to number -2, but since "5" is a string, it concatenates to "5-2"
+console.log("5" - - "2");// 7 - unary minus converts "2" to number -2, and "5" is converted to number 5, so subtraction gives 7
+console.log("5" * "2");// 10 - both strings are converted to numbers and multiplied
+console.log("5" / "2");// 2.5 - both strings are converted to numbers and divided
+console.log("5" % "2");// 1 - both strings are converted to numbers and modulus is calculated
+console.log("5" ** "2");// 25 - both strings are converted to numbers and exponentiation is calculated
+let a1 = 5;
+let b1 = "5";
+console.log(a1 != b1);    // false
+console.log(a1 !== b1);   // true
+
+
+
+
+
+
+
+
+// console.log("Hello, World!");
+// let str = 'QA Automation Engineer';
+// let CountV = 0;
+// let CountConst = 0;
+// let v = 'aeiuo';
+// let counta = 0;
+// let LowerCase = str.toLowerCase();
+// console.log(LowerCase);
+// for(let ch of LowerCase){
+//   if(v.includes(ch))
+//   CountV++;
+// else
+// CountConst++;
+// }
+// console.log("countV of ", CountV , "counT of Const",CountConst );
+// for(let ch of LowerCase){
+//   if(ch === 'a')
+//   counta++;
+// }
+// console.log(counta);
+
+// //write the prograam for prime Number
+
+// num = 60;
+// let isPrime = true;
+// if(num<1){
+//   isPrime = false;
+// }
+// for(let i = 2;i<Math.sqrt(num);i++){
+//   if(num%i === 0){
+//     isPrime = false;
+//     break;
+//   }
+// }
+// console.log(isPrime);
+
+
+// let num = Number(prompt("Enter a number:"));
+// let isPrime = true;
+// if(num<1){
+//   isPrime = false;
+// }
+// for(let i = 2;i<Math.sqrt(num);i++){
+//   if(num%i ===0){
+//     isPrime = false;
+//     break;
+//   }
+// }
+// console.log(isPrime);
+
+// const arr = [10, 20, 30, 40,50,60,70,80];
+// let newarr = arr.slice(1,0);
+// console.log(newarr);
+
+// setTimeout(function() {
+//   console.log("wait for 2 sec");
+// }, 5000);
+
+// setInterval(() => {
+//   console.log("Hi");
+// }, 5000);
+
+// console.log("Start");
+
+// setTimeout(() => {
+//   console.log("Timer");
+// }, 2000);
+
+// console.log("End");
+// console.log("Start");
+
+// setTimeout(() => console.log("Timeout"), 0);
+
+// Promise.resolve().then(() => console.log("Promise"));
+
+// console.log("End");
+
+
+
+
+// const arr = [10, 20, 30, 40];
+
+// const result = arr.slice(1, 3);
+
+// console.log(result); // [20, 30]
+// console.log(arr);    // [10, 20, 30, 40] ✅ unchanged
+
+
+// const arr = [10, 20, 30, 40];
+
+// arr.splice(1, 2);
+
+// console.log(arr);
+// // [10, 40]
+
+// const name = "Neeraj QA";
+
+// const result = name.split(" ");
+
+// console.log(result);
+// // ["Neeraj", "QA"]
+
+
+// let arr = [10, 20, 30, 20, 40, 10];
+// const unique21 = [];
+// arr.forEach(item => {
+//   if (!unique21.includes(item)) {
+//     unique21.push(item);
+//   }
+// });
+// console.log(unique21)
+
+
+
+
+
+
+// function greet(name, callback) {
+//   console.log("Hello " + name);
+//   callback();
+// }
+
+
+// function done() {
+//   console.log("Done");
+// }
+
+
+// greet("Neeraj", done);
+
+// let sum = 0;
+// let num = 1234;
+// while(num>0){
+//     sum += num%10;
+//     num = Math.floor(num/10);
+// }
+// console.log(sum);
+
+
+// let str = 'NITIN';
+// let rev = '';
+// for(let i = str.length-1;i>=0; i--){
+//   rev += str[i];
+//   if(str === rev){
+//     console.log("this is panidrone number");
+//   }
+//   else{
+//     console.log("this is Non planidron number");
+//   }
+// }
+// console.log(str === rev);
+
+
+// let str = 'I am automation Engineer';
+// let CountV = 0;
+// let CountCons = 0;
+// let v = 'aeiou';
+// for(let ch of str ){
+//   if(v.includes(ch)){
+//     CountV++
+//   }
+//   else if( ch !== " "){
+//     CountCons++;
+//   }
+// }
+
+// console.log('count of v' , CountV , 'count of Consto', CountCons);
+
+
+// let str = "I am good learner from the coding langauge for make it good for me like this";
+// let countV = 0;
+// let constV = 0;
+// let v = 'aeiou';
+// for(let ch of str){
+//   if(v.includes(ch)){
+//   countV++;
+//   }
+//   else if ( ch !== " "){
+//     constV++;
+//   }
+// }
+// console.log('count of v ', countV , 'constV' , constV);
+
+//count occuranace of frequency;
+// let str = 'BANANANANAN';
+// let arr = ['neeshu', 'apple', 'neeshu', 'apple', '']
+// let map = {};
+// for(let ch of str){
+//   map[ch] = (map[ch] || 0) +1;
+// }
+// console.log(map);
+// let str1 = 'BANANANANAANAHAHHAAN';
+// let map1 = {};
+
+// for (let ch of str1) {
+//   if (map1[ch] === undefined) {
+//     map1[ch] = 1;  // initialize count
+//   } else {
+//     map1[ch] += 1; // increment count
+//   }
+// }
+
+// console.log(map);
+
+
+// let arr = ['neshu', 'apple', 'neeshu', 'apple', 'neeshu', 'banana', 'banana'];
+// let map = {};
+// for(let ch of arr){
+//   if(map[ch] === undefined)
+//   map[ch] = 1;
+//   else{
+//     map[ch] += 1;
+//   }
+// }
+// console.log(map);
+
+// let str = 'NESHUSUSHUSHUSHUHSUHSUHS';
+// let map = {};
+// for(let ch of str){
+//   if(map[ch] === undefined){
+//     map[ch] = 1
+//   }
+//   else{
+//     map[ch] += 1;
+//   }
+// }
+// // console.log(map);
+// let str = 'NEHSUSHUHUSHS'
+// let map = {};
+// for (let ch in str) {
+//   if (map[ch] === 1) {
+//     console.log(ch);
+//   }
+// }
+
+// console.log(map);
+
+// let arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// let anagramMap = {};
+// for(let words of arr){
+//   let sorted = words.split("").sort().join();
+//   if(!anagramMAp[sorted]){
+//     anagramMap[sorted] = []
+//     anagramMap[sorted].push(word)
+//   }
+  
+// }
+// console.log("Anagram groups:", Object.values(anagramMap));
+
+// let arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// let anagramMap = {};
+// for (let word of arr) {
+//   let sorted = word.split("").sort().join("");
+//   console.log(sorted);
+//   if (!anagramMap[sorted]) {
+//     anagramMap[sorted] = [];
+//   }
+//   anagramMap[sorted].push(word);
+// }
+// console.log("Anagram groups:", Object.values(anagramMap));
+
+
+// let arr = ["Eat", "tea", "tan", "ate", "nat", "bat"];
+// let anagramMap = {};
+// for(let word of arr){
+//   let words = word.toLowerCase().split(" ").sort().join("");
+//   // let sorted = word.toLowerCase().split("").sort().join("");
+//   if(!anagramMap[words]){
+//     anagramMap[words] = []
+//     anagramMap[words].push(words);
+//   }
+// }
+// console.log(Object.values(anagramMap));
+// let arr12 = [1, 2, 2, 3, 4, 4, 5];
+// let set = [...new Set(arr12)];
+// console.log(set);
+
+// let arr1 = [2,3,2,3,23,23,23,2];
+// let uni = [];
+// for(let n of arr1){
+//   if(!uni.includes(n)){
+//     uni.push(n);
+//   }
+// }
+// console.log(uni);
+
+
+// let arr2 = [1,2,3,5,4,6,7,4,3,3,4,4,343];
+// let uni1 = [];
+// for(let n of arr2){
+//   if(!uni1.includes(n)){
+//     uni1.push(n);
+//   }
+// }
+// console.log(uni1);
+
+// let arr22 = [2,43,23,232,323,2,32,3,23]
+// let map = {};
+// for(let n of arr22){
+//   if(map[n] === undefined){
+//     map[n] = 1;//init the 1
+//   }
+//   else{
+//     map[n] += 1;
+//   }
+// }
+// console.log(map);
+// let arr3 = [2,3,23,23,2,32,3]
+// let map121 = {};
+// for(let a of arr3){
+//   map121[a] = (map121[a] || 0) +1
+// }
+// console.log(map121);
+// let str1 = 'Neeshu kumar';
+// let map22 = {};
+// for(let nn of str1){
+//   if(map22[nn] === undefined){
+//     map22[nn] = 1;
+//   }
+//   else{
+//     map22[nn] += 1;
+//   }
+// }
+// console.log(map22)
+
+// let str = "banana";
+// let map = {};
+// for(let ch of str){
+//   if(map[ch] === undefined){
+//     map[] = 1//init 1
+//   }
+//   else{
+//     map[] += 1;
+//   }
+// }
+// console.log(map);
+
+// let str = 'Neeshu kumar';
+// let rev = '';
+// for(let i = str.length-1;i>=0;i--){
+//   rev += str[i];
+// }
+// console.log(rev);
+// //needs to kept first letter same as ;
+// let str = 'Neeshu';
+// rev = '';
+// for(let i = str.length-1;i>=0;i--){
+//   rev += str[i];
+// }
+// console.log(rev);
+
+// let str = 'Neeshu'
+// let fisrt = str[0];
+// let rem = str.slice(1)
+// let rev = rem.split('').reverse().join();
+// let finalOut = fisrt + rev;
+// console.log(finalOut);
+
+
+// let str = 'Neeshu';
+// let part = str.slice[1];
+// let rev = '';
+// let first = str[0];
+// for(let i = part.length-1; i>=0;i--){
+//   rev += part[i];
+// }
+// let final = first + rev;
+// console.log(final);
+// let part = str.slice(1);
+// let rev = "";
+// for (let i = part.length - 1; i >= 0; i--) {
+//   rev += part[i];
+// }
+// let result = str[0] + rev;
+// console.log(result);
+
+// let arr = ['neeshu', 'Kumar'];
+// let rev = arr.split('').map(word=>word[0].split('').reverse.join(''));
+
+// console.log(rev);
+
+// let str = "Neeshu kumar";
+// let result = str
+//   .split(" ")
+//   .map(lt => lt[0] + lt.slice(1).split("").reverse().join(""))
+//   .join(" ");
+// console.log(result);
+
+
+// let str1 = 'NITIN';
+// let rev = '';
+// for(let i = str1.length-1;i>=0;i--){
+//   rev += str1[i]
+//   if(rev == str1){
+//     console.log("thi is panidrone")
+//   }
+//   else{
+//     console.log("this is nON planidron")
+//   }
+// }
+
+
+
+
+// let str = "automation neeshu as well as kumar";
+// let counV = 0;
+// let CountCons = 0;
+// let v = 'aeiou';
+// for(let ch of str){
+//   if(v.includes(ch))
+//     counV++
+//   else if (ch !== " ")
+//     CountCons++
+// }
+// console.log('count of vowels:', counV , 'count of const', CountCons);
+
+
+// let str = "I am a good learner";
+
+// let counV = 0;
+// let counst = 0;
+// let v = 'aeiou';
+// for(let ch of str){
+//   if(v.includes(ch))
+//   counV++
+//   else if(ch !== " ")
+//   counst++
+  
+// }
+
+// console.log("count of V :",counV , "count of constonet:", counst );
+//cpunt of occurance of words;
+// let str4 = "banana";
+// let map = {};
+// for(let ch of str4){
+//   if(map[ch] === undefined)
+//   map[ch] = 1; //init of 1;
+//   else
+//   map[ch] += 1; //incre the and add 1;
+// }
+// console.log(map);
+// for(let ch of str4){
+//   if(map[ch] === 3)
+//   console.log(ch);
+// }
+
+
+// let str = 'NESHUSUSHUSHUSHUHSUHSUHS';
+// let map = {};
+// for(let ch of str){
+//   if(map[ch] === undefined)
+//   map[ch] = 1; //initialize of 1 if value is undefined
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map);
+
+// let arr = [2,43,21,2121,1,11,2,32,32,23];
+// let map = {};
+// for(let ch of arr){
+//   if(map[ch] === undefined)
+//   map[ch] = 1;
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map)
+
+// let arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+
+// let map = {};
+// for(let word of  arr){
+//   let sorted = word.split("").sort().join("");
+//   if(!map[sorted])
+//   map[sorted] = []
+//   map[sorted].push(word);
+// }
+
+// console.log(Object.values(map));
+
+
+// let str = ["listen", "silent", "enlist", "inlets","dog","god"];
+// let map = {};
+// let anagramMap = {};
+// for(let word of str){
+//   let sorted = word.split("").sort().join("");
+//   if(!map[sorted])
+//   map[sorted] = [];
+//   map[sorted].push(word);
+// }
+// console.log(Object.values(map
+
+// let arr = [1, 2, 2, 3, 4, 4, 5];
+
+// let uni = [];
+// for(let ch of arr){
+//   if(!uni.includes(ch))
+//   uni.push(ch);
+// }
+// console.log(uni);
+
+// let set = [...new Set(arr)];
+// console.log(set);
+
+
+
+await page.locator('iframe[name="a-nurcz5a1yy50"]').contentFrame().getByRole('checkbox', { name: 'I\'m not a robot' }).click();
+await page.locator('iframe[name="c-nurcz5a1yy50"]').contentFrame().locator('[id="0"]').click();
+await page.locator('iframe[name="c-nurcz5a1yy50"]').contentFrame().locator('[id="8"]').click();
+await page.locator('iframe[name="c-nurcz5a1yy50"]').contentFrame().getByRole('button', { name: 'Verify' }).click();
+await page.getByRole('link', { name: 'Automation Demo Site' }).click();
+await page.getByRole('link', { name: 'Alerts' }).click();
+page.once('dialog', dialog => {
+    console.log(`Dialog message: ${dialog.message()}`);
+    dialog.dismiss().catch(() => {});
+  });
+  await page.getByRole('button', { name: 'click the button to display' }).click();
+await page.getByRole('link', { name: 'Alert with OK & Cancel' }).click();
+await page.getByRole('link', { name: 'Alert with Textbox' }).click();
+await page.getByRole('link', { name: 'Frames' }).click();
+await page.getByRole('link', { name: 'Single Iframe' }).click();
+await page.locator('iframe[name="SingleFrame"]').contentFrame().getByRole('textbox').click();
+await page.locator('iframe[name="SingleFrame"]').contentFrame().getByRole('textbox').fill('g');
+await page.locator('iframe[name="SingleFrame"]').contentFrame().getByRole('textbox').click();
+await page.locator('iframe[name="SingleFrame"]').contentFrame().getByRole('textbox').fill('geeded');
+await page.locator('iframe[name="SingleFrame"]').contentFrame().getByRole('textbox').press('Enter');
+await page.getByRole('link', { name: 'Iframe with in an Iframe' }).click();
+await page.getByRole('link', { name: 'Iframe with in an Iframe' }).click();
+await page.getByRole('link', { name: 'Iframe with in an Iframe' }).click();
+await expect(page.getByRole('link', { name: 'Iframe with in an Iframe' })).toBeVisible();
+await expect(page.locator('#Multiple').getByText('<p>Your browser does not').contentFrame().getByText('<p>Your browser does not').contentFrame().locator('section')).toMatchAriaSnapshot(`- textbox`);
+await expect(page.locator('#Multiple').getByText('<p>Your browser does not').contentFrame().locator('section')).toMatchAriaSnapshot(`
+    - heading "Nested iFrames" [level=5]
+    - iframe: <p>Your browser does not support iframes.</p>
+    `);
+await expect(page.locator('#Multiple').getByText('<p>Your browser does not').contentFrame().locator('section')).toMatchAriaSnapshot(`
+    - heading "Nested iFrames" [level=5]
+    - iframe: <p>Your browser does not support iframes.</p>
+    `);
+await expect(page.locator('h1')).toContainText('Automation Demo Site');
+await page.getByRole('link', { name: 'Home' }).click();
+await expect(page.getByRole('button', { name: 'Sign In', exact: true })).toBeVisible();
+
+
+
+// let arr = [5, 9, 2, 7];
+
+// let desc = [...arr].sort((a, b) => b - a); // descending sorted copy
+// let asc = [...arr].sort((a, b) => a - b);  // ascending sorted copy
+
+// let secondHighest = desc.find(num => num < desc[0]);
+// console.log(secondHighest);
+
+// let secondLowest = asc.find(num => num > asc[0]);
+// console.log(secondLowest);
+
+
+// let arr = [1, 2, 3, 2, 4, 2, 5];
+// let map = {};
+// for(let ch of arr){
+//   if(map[ch] === undefined)
+//   map[ch] =1;
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map);
+
+// for(let ch1 of arr){
+//   if(map[ch1]===3)
+//   console.log(ch1);
+// }
+//space removed
+// let str = "hello world qa";
+// let result = '';
+// for(let ch of str){
+//   if(ch !== " ")
+//   result += ch
+// }
+// console.log(result);
+// //count of words
+// let str21 = "I love automation testing";
+
+// let count = 1;
+// for(let ch of str21){
+//   if(ch === " ")
+//   count++
+// }
+// console.log(count);
+
+// const  fruits = ['Apple', 'Orange', 'Mango','Apple', 'Orange', 'Apple'];
+// let CountMap = {};
+// for(let ch of fruits){
+//   if(CountMap[ch] === undefined)
+//   CountMap[ch] =1;
+//   else
+//   CountMap[ch] += 1;
+// }
+// console.log(CountMap);
+
+
+// let arr001 = [ 1,2,3,4,5,6]
+// let max = arr001[0];
+// let mini = arr001[0];
+// for(let n of arr001){
+//   if(n>max)
+//   max = n;
+//   if(n<mini)
+//   mini = n;
+// }
+// console.log(max , mini);
+
+
+
+// class Calculator {
+//   static add(a, b) {
+//     return a + b;
+//   }
+// }
+
+// console.log(Calculator.add(2, 3));
+// let str5 = "hello world qa";
+// let result = '';
+// for(let ch of str5){
+//   if(ch !== " ")
+//   result += ch;
+// }
+// console.log(result);
+
+// const arr122 = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// let groupMap = {}
+// for(let word of arr122){
+//   let sorted = word.split("").sort().join("");
+//   if(!groupMap[sorted])
+//   groupMap[sorted] = []
+//   groupMap[sorted].push(word);
+// }
+// console.log(Object.values(groupMap));
+
+// let str = "banana";
+// let map = {}
+// for(let ch of str){
+//   if(map[ch] === undefined)
+//   map[ch] = 1;
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map);
+
+// let str = 'BANANANANAANAHAHHAAN';
+// let uni = '';
+// for(let ch of str){
+//   if(!uni.includes(ch))
+//   uni += ch;
+// }
+// console.log(uni);
+
+// let arr = [2,3,41,2,3,4,5,6,7,8,9]
+// let uni = []
+// for(let ch of arr){
+//   if(!uni.includes(ch))
+//   uni.push(ch);
+// }
+// console.log(uni);
+
+// let set = [...new Set(arr)];
+// console.log(set);
+
+// let str = "programming";
+// let result = '';
+//   let seen = new Set();
+//   for(let ch of str){
+//       if(!seen.has(ch))
+//       seen.has(ch)
+//       result +=ch;
+//   }
+//   console.log(result);
+  
+// let str22 = "aabbccdde";
+// let seen  = new Set();
+// let result = '';
+
+// for(let ch of str22){
+//   if(!seen.has(ch))
+//   seen.add(ch)
+//   result += ch;
+// }
+// console.log(result);
+
+// let arr = [1, 1, 2, 2, 3, 4, 5, 5, 6, 6];
+// let uni = []
+// let map = {};
+// for(let ch of arr){
+//   if(map[ch] === undefined)
+//   map[ch] =1;
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map);
+// for(let ch of arr){
+//   if(map[ch] ===1)
+//   console.log(ch);
+// }
+
+
+// let str = "hello world qa";
+// let result = '';
+// for(let ch of str){
+//   if(ch !== " ")
+//   result += ch;
+// }
+// console.log(result);
+
+// *
+// **
+// ***
+// ****
+// *****
+
+// let n =5
+// let result = "";
+// for(let i = 1;i<=n;i++){
+//   for(let j = 1;j <= i;j++){
+//     result += '* ';
+//   }
+//   console.log(result);
+// }
+
+
+// for (var i = 1; i <= 3; i++) {
+//   setTimeout(() => console.log(i), 1000);
+// }
+// for (let i = 1; i <= 3; i++) {
+//   setTimeout(() => console.log(i), 1000);
+// }
+
+
+// function outer() {
+
+//   let name = "Neeshu";
+
+//   function inner() {
+//     console.log(name);
+//   }
+
+//   return inner;
+// }
+
+// const fn = outer();
+
+// // fn();
+// function outer(){
+//   name = 'neeshu';
+//   function inner(){
+//     console.log(name);
+//   }
+//   return inner;
+// }
+// const fn = outer();
+// fn();
+// function outer(){
+  
+//   name = 'neeshu'
+//   function inner (){
+//     console.log(name);
+//   }
+//   return inner;
+// }
+
+// const fn = outer();
+// fn();
+//removed the space;
+// let str = "hello world qa";
+// let res = '';
+// for(let ch of str){
+// if(ch !== " ")
+// res += ch;
+// }
+// console.log(res);
+
+// let spt = str.split(" ").join("");
+// console.log(spt);
+
+// let arr = [-1,2,3,4,5,6,7,3,5,3,32,0];
+// let ase = arr.sort((a,b)=> a-b);
+// let dsc = arr.sort((a,b)=> b-a);
+// console.log("asc order", ase, "desc order of count", dsc);
+
+
+//buble sort methdods use krte he bhai
+
+// let arr = [-1, 2, 3, 4, 5, 6, 7, 3, 5, 3, 32, 0];
+// for (let i = 0; i < arr.length - 1; i++) {
+//   for (let j = 0; j < arr.length - 1 - i; j++) {
+//     if (arr[j] > arr[j + 1]) {
+//       let temp = arr[j];
+//       arr[j] = arr[j + 1];
+//       arr[j + 1] = temp;
+//     }
+//   }
+// }
+// console.log(arr);
+
+
+// let arr1 = [-1, 2, 3, 4, 5, 6, 7, 3, 5, 3, 32, 0];
+// for(let i = 0; i<arr1.length-1;i++){
+//   for(let j = 0;j<arr1.length-1-i;j++){
+//     let temp = arr[j];
+//     arr[j] = arr[j+1]
+//     arr[j+1] = temp;
+//   }
+// }
+
+
+// let arr = [5,2,9,1,5,6];
+// for(let i =0;i<arr.length-1;i++){
+//   for(let j =0 ; j<arr.length-1-i;j++){
+//     if(arr[j]>arr[j+1]){
+//         let temp = arr[j]
+//     arr[j] = arr[j+1]
+//     arr[j+1] = temp;
+//     }
+//   }
+// }
+// console.log(arr);
+
+
+// let num = 7;
+// let fact = 1;
+// for(let i =1; i<num;i++){
+//   fact *= i;
+  
+// }
+// console.log(fact);
+
+// let num1 = 17;
+// let isPrime = true;
+// if()
+// let num = Number(prompt("Enter a number:"));
+// let isPrime = true;
+// if (num <= 1) {
+//   isPrime = false;
+// }
+// for (let i = 2; i < num; i++) {
+//   if (num % i === 0) {
+//     isPrime = false;
+//     break;
+//   }
+// }
+// if (isPrime) {
+//   console.log("Prime number");
+// } else {
+//   console.log("Not a prime number");
+// }
+
+
+// let num = 41;
+// let isPrime = true;
+// if(num<1){
+//   isPrime = false;
+// }
+
+// for(let i = 2; i<Math.sqrt(num);i++){
+//   if(num%i === 0){
+//     isPrime = false;
+//     break;
+//   }
+// }
+// console.log(isPrime);
+
+// let arr = [1,2,3,4,5,6,7,8,9];
+// let countOdd = 0;
+// let even = 0;
+// for(let ch of arr){
+//   if(ch%2 === 0)
+//   even++
+//   else
+//   countOdd++
+// }
+// console.log('count of odded number', countOdd , 'count od even number', even);
+//count of vowels and constonents and count a as well;
+// console.log("Hello, World!");
+// let str = 'QA Automation Engineer';
+// let CountV = 0;
+// let CountConst = 0;
+// let v = 'aeiuo';
+// let counta = 0;
+// let LowerCase = str.toLowerCase();
+// console.log(LowerCase);
+// for(let ch of LowerCase){
+//   if(v.includes(ch))
+//   CountV++;
+// else
+// CountConst++;
+// }
+// console.log("countV of ", CountV , "counT of Const",CountConst );
+// for(let ch of LowerCase){
+//   if(ch === 'a')
+//   counta++;
+// }
+// console.log(counta);
+//index:  0   1   2   3   4
+//array: [10, 20, 30, 40, 50]
+//console.log(slice(1,4));
+//index:  0   1   2   3   4
+// let array =  [10, 20, 30, 40, 50]
+// console.log(array.slice(2));
+// console.log(array.slice(1,4))
+// console.log(array.slice(-3));
+// console.log(array.slice(1,-2));
+// // console.log(let copy = array.slice())
+// console.log(array.slice(-1));
+// console.log(array.slice(1));
+// console.log(array.slice(0,-1));
+// console.log(array.slice(2,5));
+
+// let arr = [10, 20, 30, 20, 40, 10,69,13,20];
+// let uni = [];
+// for(let ch of arr){
+//   if(!uni.includes(ch)){
+//     uni.push(ch);
+//   }
+// }
+// console.log(uni);
+// let set = [...new Set(arr)];
+// console.log(set);
+
+// let asc = arr.sort((a,b)=> a-b);
+// console.log(asc);
+// let dsc = arr.sort((a,b)=>b-a);
+// console.log(dsc);
+
+// for(let i = 0;i< arr.length-1;i++){
+//   for(let j =0;j<arr.length-1-i;j++){
+//     if(arr[j]>arr[j+1]){
+//       temp = arr[j]
+//       arr[j] = arr[j+1];
+//       arr[j+1] =temp;
+//     }
+//   }
+// }
+// console.log(arr);
+
+// let str = 'NITIN';
+// let rev = '';
+// for(let i =str.length-1;i>=0;i--){
+//   rev += str[i];
+//   // if(rev === str)
+//   // console.log("this is planidron")
+//   // else
+//   // console.log('this is non planidron');
+// }
+// console.log(rev === str);
+
+// let str = 'I am automation Engineer';
+// let countv = 0;
+// let Conuts = 0;
+// let v = 'aeiou';
+// for(let ch of str){
+//   if(v.includes(ch)){
+//     countv++
+//   }
+//   else if (ch !== " "){
+//     Conuts++;
+//   }
+// }
+// console.log("count og vowels:", countv,"count of Conuts" , Conuts);
+
+
+
+// let str = 'BANANANANAN';
+// let map = {}
+// for(let ch of str){
+//   if(map[ch] === undefined)
+//   map[ch] = 1;
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map);
+
+// let arr = ['neeshu', 'apple', 'neeshu', 'apple', 'neeshu', 'banana', 'banana', 'nesu'];
+// let groupMap = {};
+// for(let ch of arr){
+//   if(groupMap[ch] === undefined){
+//     groupMap[ch] = 1;
+//   } else {
+//     groupMap[ch] += 1;
+//   }
+// }
+
+// console.log(groupMap);
+// for(let ch of arr){
+//   if(groupMap[ch] > 2){
+//     console.log(ch);
+//     break;
+//   }
+// }
+
+// let arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+
+// let map = {};
+// for(let ch of arr){
+//   let sorted = ch.split("").sort().join("");
+//   if(!map[sorted]){
+//     map[sorted] = [];
+//   }
+//     map[sorted].push(ch);
+// }
+// console.log(Object.values(map));
+
+// let arr = [2,43,23,232,323,2,32,3,23]
+// let map = {}
+// for(let ch of arr){
+//   if(map[ch] === undefined)
+//   map[ch] = 1;
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map);
+
+
+// let arr = [-1,2,0,3,4,26,23,43,4,34,34]
+//aseding order with bubleshot
+// let asc = arr.sort((a,b)=>a-b);
+// console.log(asc);
+// let dsc = arr.sort((a,b)=>b-a)
+// console.log(dsc);
+// with help og bubble shot we can try to solved the question
+// for(let i =0;i<arr.length-1;i++){
+//   for(let j=0;j<arr.length-1-i;j++){
+//     if(arr[j]<arr[j+1]){
+//       temp = arr[j]
+//       arr[j] = arr[j+1]
+//       arr[j+1]= temp;
+//     }
+//   }
+// }
+
+//   console.log(arr);
+  
+  
+//   let arr = [10, 20, 30, 20, 40, 10];
+//   let uni = [];
+//   for(let ch of arr){
+//     if(!uni.includes(ch))
+//     uni.push(ch);
+//   }
+// console.log(uni);
+
+// let str = 'Neeshu';
+// let uni1 = ''
+// for(let ch of str){
+//   if(!uni1.includes(ch)){
+//     uni1 += ch;
+//   }
+// }
+// console.log(uni1);
+
+// let map = {}
+// for(let ch of str){
+//   if(map[ch] === undefined)
+//   map[ch] = 1;
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map);
+// for(let ch1 of str){
+//   if(map[ch1] === 'n');
+//   console.log(ch1);
+// break;
+// }
+
+// let sum = 0;
+// let num = 1234;
+// while(num>0){
+//   sum += num%10;
+//   num = Math.floor(num/10);
+// }
+
+// console.log(sum);
+// let num1 = 7;
+// let fact = 1;
+// for(let i = 1;i<num1;i++){
+//   fact *= i;
+// }
+// console.log(fact);
+
+
+// str = "I am good learner from the coding langauge for make it good for me like this";
+// let countv = 0;
+// let CountConst = 0;
+// let v = 'aeiou';
+// let counta = 0;
+// let rev = '';
+// for(let ch of str){
+//   if(v.includes(ch))
+//   countv++;
+//   else if (ch !== " ")
+//   CountConst++
+// }
+// console.log('count vowels',countv , 'count of consonant', CountConst);
+
+// for(let ch of str){
+//   if(ch === 'a')
+//   counta++
+// }
+// console.log(counta);
+
+// for(let ch of str){
+//   if(ch !== " ")
+//   rev += ch;
+// }
+// console.log(rev);
+// let newstr = str.split(" ").join("");
+// console.log(newstr);
+
+
+// let arr = ['neshu', 'apple', 'neeshu', 'apple', 'neeshu', 'banana', 'banana'];
+
+// let map = {};
+// for(let ch of arr){
+//   if(map[ch] === undefined){
+//     map[ch] = 1;
+//   }
+//   else{
+//     map[ch] += 1;
+//   }
+// }
+// console.log(map);
+
+// let arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// let groupMap = {};
+// for(let word of arr){
+//   let sorted = word.split("").sort().join("")
+//   if(!groupMap[sorted]){
+//     groupMap[sorted] = []
+  
+//   }
+//     groupMap[sorted].push(word);
+// }
+// console.log(Object.values(groupMap));
+
+
+
+
+
+
+// let arr1 = [10, 20, 30, 20, 40, 10];
+
+// let uni = []
+// for(let ch of arr1){
+//   if(!uni.includes(ch))
+//   uni.push(ch);
+// }
+// console.log(uni);
+
+
+// let sum = 0;
+// let num = 1234;
+// while(num>0)
+// sum += num%10;
+// num = Math.floor(num/10);
+// console.log(sum);
+
+// let num  = Number(prompt('Enter you number'));
+// let isPrime = true;
+// if(num<0){
+//   isPrime = false;
+// }
+// for(let i =2; i<num;i++){
+//   if(num%i === 0){
+//     isPrime = false;
+//   }
+//   if(isPrime){
+//     console.log('this is prime number')
+//   }
+//   else{
+//     console.log('this is not prime number');
+//   }
+// }
+// console.log(isPrime);
+
+
+// let str = 'I am automation Engineer';
+// let countv = 0;
+// let  countConst = 0;
+// const v = 'aeiou';
+// let Counta = 0;
+// let countword = 1;
+// let spaceCount = 0;
+// let rev = '';
+// let result = '';
+
+// for(let ch of str ){
+//   if(v.includes(ch)){
+//     countv++
+//   }
+//   else if ( ch !== " "){
+//     countConst++
+//   }
+// }
+// console.log('count of vowels', countv, 'count of consonat',countConst );
+
+// for(let ch of str){
+//   if(ch === ' '){
+//     countword++
+//   }
+// }
+
+// console.log(countword)
+
+// for(let ch of str){
+//   if(ch === " "){
+//     spaceCount++
+//   }
+// }
+// console.log(spaceCount);
+
+// let str = 'BANANANANAN';
+// let map = {};
+// let uni = '';
+// for(let ch of str){
+//   if(!uni.includes(ch)){
+//     uni += ch;
+//   }
+// }
+// console.log(uni);
+// for(let ch of str){
+//   if(map[ch] === undefined){
+//     map[ch] = 1; //init the value 1
+//   }
+//   else{
+//     map[ch] = 1;
+//   }
+// }
+// console.log(map);
+// for(let ch of str){
+//   if(map[ch] === 1)
+//   console.log(ch);
+//   break;
+// }
+
+// let arr = ['neshu', 'apple', 'neeshu', 'apple', 'neeshu', 'banana', 'banana'];
+// let map = {}
+// for(let ch of arr){
+//   if(map[ch] === undefined)
+//   map[ch] = 1;
+//   else
+//   map[ch] += 1;
+// }
+// console.log(map);
+// for(let ch of arr){
+//   if(map[ch] === 1)
+//   console.log(ch);
+//   break;
+// }
+
+// let arr = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// let map = {}
+// for(let word of arr){
+//   let sorted = word.split("").sort().join("");
+//   if(!map[sorted]){
+//       map[sorted] = []
+//   }
+// map[sorted].push(word);
+// }
+// console.log(Object.values(map));
+
+
+// let str = 'Neeshu kumar';
+// let map = {};
+// for(let ch of str){
+//   if(map[ch] === undefined){
+//     map[ch] = 1;
+//   }
+//   else{
+//     map[ch] += 1;
+//   }
+// }
+// console.log(map);
+ 
+// let str = 'Neeshu'
+// let first = str[0];
+// let rem = str.slice(1);
+// let result  = rem.split("").reverse().join("");
+// let res = '';
+// console.log(result);
+// for(let i = rem.length-1;i>=0;i--){
+//   res += rem[i];
+// }
+// console.log(first + res);
+// let str = 'Neeshu Kumar'
+ 
+ //String ke sirf even index wale characters print karne hain
+ 
+// let str = "neeshu";
+// for (let i = 0; i < str.length; i += 2) {
+//   console.log(str[i]);
+// }
+
+//JavaScript program to print only even indexed characters
+// function evenIndexChars(str) {
+//   let result = "";
+//   for (let i = 0; i < str.length; i += 2) {
+//     result += str[i];
+//   }
+//   return result;
+// }
+// console.log(evenIndexChars("javascript"));
+
+
+
+//👉 string me sirf even index par jo vowels hain unko print karna hai
+// let str = "javascript";
+// for (let i = 0; i < str.length; i += 2) {
+//   let ch = str[i];
+//   if ("aeiou".includes(ch)) {
+//     console.log(ch);
+//   }
+  
+  
+  
+// let str = "abc";
+// let result = "";
+// for (let i = 0; i < str.length; i++) {
+//   result += str[i] + str[i];
+// }
+// console.log(result);
+//find the count of word like this.
+// let str = "I am learning JavaScript";
+// let counWord = 1;
+// for(let ch of str){
+//   if(ch === " "){
+//     counWord++
+//   }
+// }
+// console.log(counWord);
+
+let a = "hello";
+let b = "world";
+a = a + b;          // helloworld
+b = a.slice(0, a.length - b.length);  // hello
+a = a.slice(b.length);                // world
+console.log("a =", a);
+console.log("b =", b);
+let a = "hello";
+let b = "world";
+[a, b] = [b, a];
+console.log(a, b);
+
+
+
+
+//main tumhe run-length encoding (string compression) ka simple loop based program de raha hoon — easy logic 👍
+
+let strq = "aaabbccca";
+let resultq = "";
+let countq = 1;
+for (let i = 0; i < strq.length; i++) {
+  if (strq[i] === strq[i + 1]) {
+    count++;
+  } else {
+    resultq += countq + strq[i];
+    countq = 1;
+  }
+}
+console.log(resultq);
+
+
+let str1 = "aabbcccdd";
+let result1 = "";
+let count10 = 1;
+
+for (let i = 0; i < str1.length; i++) {
+
+  if (str1[i] === str1[i + 1]) {
+    count10++;
+  } else {
+    result1 += str1[i] + count10;
+    count10 = 1;
+  }
+
+}
+console.log(result1);
+
+
+
+// let str = "abcabcbb";
+// let obj = {};
+// let start = 0;
+// let maxLen = 0;
+// for (let end = 0; end < str.length; end++) {
+//   let ch = str[end];
+//   // agar character already present hai
+//   if (obj[ch] >= start) {
+//     start = obj[ch] + 1;
+//   }
+//   obj[ch] = end;
+//   let len = end - start + 1;
+//   if (len > maxLen) {
+//     maxLen = len;
+//   }
+// }
+// console.log(maxLen);
+
+
+let str = "abcabcbb";
+let obj = {};
+let start = 0;
+let maxLen = 0;
+let longest = "";
+
+for (let end = 0; end < str.length; end++) {
+  let ch = str[end];
+  if (obj[ch] >= start) {
+    start = obj[ch] + 1;
+  }
+  obj[ch] = end;
+  if (end - start + 1 > maxLen) {
+    maxLen = end - start + 1;
+    longest = str.slice(start, end + 1);
+  }
+}
+console.log(longest);
+
+
+
+
+let str = "SubhRaj123*^&_00";
+
+let small = "";
+let capital = "";
+let number = "";
+let zero = "";
+let special = "";
+
+for (let ch of str) {
+
+  if (ch >= 'a' && ch <= 'z') {
+    small += ch;
+  }
+  else if (ch >= 'A' && ch <= 'Z') {
+    capital += ch;
+  }
+  else if (ch >= '1' && ch <= '9') {
+    number += ch;
+  }
+  else if (ch === '0') {
+    zero += ch;
+  }
+  else {
+    special += ch;
+  }
+
+}
+
+console.log("small =", small);
+console.log("capital =", capital);
+console.log("number =", number);
+console.log("zero =", zero);
+console.log("special =", special);
+
+
+let str = "abcabcbb";
+
+let obj = {};
+let start = 0;
+let maxLen = 0;
+
+for (let end = 0; end < str.length; end++) {
+
+  let ch = str[end];
+
+  if (obj[ch] >= start) {
+    start = obj[ch] + 1;
+  }
+
+  obj[ch] = end;
+
+  maxLen = Math.max(maxLen, end - start + 1);
+}
+
+console.log(maxLen);
+
+
+
+let num = 153;
+let temp = num;
+let sum = 0;
+
+let digits = num.toString().length;
+
+while (temp > 0) {
+
+  let rem = temp % 10;
+  sum += rem ** digits;
+  temp = Math.floor(temp / 10);
+
+}
+
+if (sum === num) {
+  console.log("Armstrong number");
+} else {
+  console.log("Not an Armstrong number");
+}
+
+
+
+let asianCountries = ["India", "China", "Japan", "South Korea", "North Korea", "Indonesia", "Malaysia", "Singapore", "Thailand", "Vietnam", "Philippines", "Myanmar", "Sri Lanka", "Nepal", "Bangladesh", "Pakistan", "Afghanistan", "Iran", "Iraq", "Saudi Arabia", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Jordan", "Israel", "Lebanon", "Kazakhstan", "Uzbekistan", "Mongolia"];
+let count643 = 0;
+for (let country of asianCountries) {
+  if (country.toLowerCase().endsWith("tan")) {
+    count643++;
+    console.log(country);
+  }
+}
+// let str = 'This is a coding test, All the best'
+// //Output string - sihT is a gnidoc test, All eht best!
+// // let rem = str.slice(0,2);
+// //sihT is a coding test, All the best!
+// let word  = str.split(" ");
+// let rem  = word[0]
+// let remm = word.slice(1)
+// let rev = '';
+let str543 = "This is a coding test, All the best!";
+// split sentence into words
+let words8677 = str543.split(" ");
+console.log(words8677);
+// reverse first word
+words8677[0] = words8677[0].split("").reverse().join("");
+console.log(words8677[0]);
+// reverse fourth word (coding)
+words8677[3] = words8677[3].split("").reverse().join("");
+// reverse word "the"
+words8677[6] = words8677[6].split("").reverse().join("");
+// join sentence again
+let result654 = words8677.join(" ");
+console.log(result654);
+let first word = 
+let rev = str543.split(" ").map(word => word.split("").reverse().join("")).join(" ")
+console.log(rev);
 
 //JavaScript program to generate prime numbers between 1 and given number
 //write the prograam of that code 
@@ -1006,58 +2793,8 @@ JavaScript program to find longest substring without repeating characters
 Given "aBACbcEDed" → output "abcde" and "ABCDE"
 Given "Subbu123raj" → output "Subburaj" and "123"
 Given "32400121200" → output "32412120000" (remove leading zeros) or "00003241212" (preserve leading zeros)
-4. Pattern & Miscellaneous Logic Programs (JavaScript)
-JavaScript program to print different patterns (star, number, character patterns)
-JavaScript program to generate all permutations of a given string
 5. Object / Map / Collection Related (JavaScript)
 JavaScript – what happens with duplicate keys in an object / Map?
 JavaScript program to remove the second highest value from an object / Map
 JavaScript program to print all entries of a Map
 */
-
-console.log([] + []); // "" - empty string
-console.log([] + {});// "[object Object]" 
-console.log({} + []);// 0 - because {} is treated as an empty block, and +[] is 0
-console.log({} + {});// "[object Object][object Object]" - both are treated as empty blocks, so it concatenates their string representations
-console.log([1,2] + [3,4]);// "1,23,4" - both arrays are converted to strings and concatenated
-console.log("10" + 1);// "101" - number 1 is converted to string and concatenated
-console.log("10" - 1);// 9 - string "10" is converted to number and subtraction is performed
-console.log(true + "1");// "true1" - boolean true is converted to string and concatenated
-console.log(true + 1);// 2 - boolean true is converted to number 1 and addition is performed
-console.log(0 == false);// true - 0 is falsy, so it is equal to false
-console.log(0 === false);// false - different types (number vs boolean)
-console.log("" == 0);// true - empty string is falsy, so it is equal to 0
-console.log("" == 0);// false - different types (string vs number)
-console.log(null == undefined);// true - both null and undefined are considered equal in non-strict equality
-console.log(null === undefined);// false - different types (object vs undefined)
-console.log("5" == 5);// true - string "5" is converted to number 5 and compared
-console.log("5" === 5);// false - different types (string vs number)
-console.log(true == 1);// true - boolean true is converted to number 1 and compared
-console.log(true === 1);// false - different types (boolean vs number)
-console.log([] == 0);// true - empty array is falsy, so it is equal to 0
-console.log([] == false);// true - empty array is falsy, so it is equal to false
-console.log([1] == 1);// true - array with one element is converted to that element (1) and compared
-console.log([] == "");// true - empty array is converted to empty string and compared
-console.log([] == ![]);// true - ![] is false, so it is equal to empty array which is falsy
-console.log({} == {});// false - different object references
-console.log(0 === false);// false - different types (number vs boolean)
-console.log("" == 0);// true - empty string is falsy, so it is equal to 0
-console.log("" === 0);// false - different types (string vs number)
-console.log(null == undefined);// true - both null and undefined are considered equal in non-strict equality
-console.log(null === undefined);// false - different types (object vs undefined)
-console.log("5" == 5);// true - string "5" is converted to number 5 and compared
-console.log("5" === 5);// false - different types (string vs number)
-console.log(true + false);// 1 - true is 1 and false is 0, so addition gives 1
-console.log(null + 1);// 1 - null is treated as 0 in numeric context, so addition gives 1
-console.log(true + "5");// "true5" - boolean true is converted to string and concatenated
-console.log(undefined + 1);// NaN - undefined is treated as NaN in numeric context, so addition gives NaN
-console.log("5" + - "2");// "5-2" - unary minus converts "2" to number -2, but since "5" is a string, it concatenates to "5-2"
-console.log("5" - - "2");// 7 - unary minus converts "2" to number -2, and "5" is converted to number 5, so subtraction gives 7
-console.log("5" * "2");// 10 - both strings are converted to numbers and multiplied
-console.log("5" / "2");// 2.5 - both strings are converted to numbers and divided
-console.log("5" % "2");// 1 - both strings are converted to numbers and modulus is calculated
-console.log("5" ** "2");// 25 - both strings are converted to numbers and exponentiation is calculated
-let a1 = 5;
-let b1 = "5";
-console.log(a1 != b1);    // false
-console.log(a1 !== b1);   // true

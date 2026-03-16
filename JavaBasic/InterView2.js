@@ -383,11 +383,13 @@ let current = "";
 for (let ch of str11121111) {
   if (!current.includes(ch)) current += ch;
   else {
-    if (current.length > longest.length) longest = current;
+    if (current.length > longest.length) 
+      longest = current;
     current = current.slice(current.indexOf(ch) + 1) + ch;
   }
 }
-if (current.length > longest.length) longest = current;
+if (current.length > longest.length) 
+  longest = current;
 console.log(longest);
 
 

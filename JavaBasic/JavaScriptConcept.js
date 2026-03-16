@@ -1,39 +1,26 @@
 
 /*
 🎯 Interview me bolne ka structured answer
-
 1️⃣ Closure is a function bundled with its lexical scope
 2️⃣ It allows data hiding
 3️⃣ Used in function factories
 4️⃣ Used in POM & helper utilities
-
 Function + its outer variable memory = Closure
 */
-
 /*
-
 💥 Real execution memory concept
-
 JS outer function ka Lexical Environment store karta hai
 aur inner function ke saath attach kar deta hai.
-
 Isliye variable destroy nahi hota.
 */
-
 /*
-
 console.log("Start");
-
 setTimeout(() => {
   console.log("Timer");
 }, 2000);
-
 console.log("End");
 */
-
 /*
-
-
 📊 setTimeout vs setInterval
 Feature	setTimeout	setInterval
 Run	once	repeatedly
@@ -42,8 +29,6 @@ Stop	clearTimeout	clearInterval
 */
 
 /*
-
-
 1️⃣ Call Stack  → jaha code execute hota hai
 2️⃣ Web API     → timer / setTimeout yaha jata hai
 3️⃣ Callback Queue → setTimeout ka function wait karta hai
@@ -52,11 +37,9 @@ Stop	clearTimeout	clearInterval
 */
 
 console.log("Start");
-
 setTimeout(() => {
   console.log("Timer");
 }, 2000);
-
 console.log("End");
 /*
 
@@ -157,30 +140,20 @@ const result = arr21.slice(1, 3);
 
 console.log(result); // [20, 30]
 console.log(arr21);    // [10, 20, 30, 40] ✅ unchanged
-
 const locators = await page.locator('.item').all();
-
 const firstTwo = locators.slice(0, 2);
-
 arr.splice(start, deleteCount, newItems)
-
 const arr12 = [10, 20, 30, 40];
-
 arr12.splice(1, 2);
-
 console.log(arr);
 // [10, 40]
 const arr = [10, 20, 30, 40];
-
 arr.splice(1, 2);
-
 console.log(arr);
 // [10, 40]
 //slice → copy
 //splice → change original
-
 const name = "Neeraj QA";
-
 const result1 = name.split(" ");
 
 console.log(result);
@@ -205,32 +178,21 @@ Flaky = kabhi pass ✅ kabhi fail ❌
 element late load hota hai
 
 DOM re-render (React / Angular)
-
 animation
-
 API slow
-
 stale locator
-
 multiple matching elements
-
 ❌ Galat approach (jo flakiness create karta hai)
 await page.click('#login');
-
-
 Agar element ready nahi hai → fail ❌
-
 ✅ Playwright ka golden rule
-
 Playwright auto-wait already karta hai 😎
 Isliye hard wait use nahi karna
-
 ❌
-
 await page.waitForTimeout(5000);
-
 🔥 1️⃣ Use proper locators (MOST IMPORTANT)
 await page.getByRole('button', { name: 'Login' }).click();
+
 
 
 ✔ stable
@@ -238,7 +200,6 @@ await page.getByRole('button', { name: 'Login' }).click();
 ✔ dynamic DOM safe
 
 🔥 2️⃣ Auto-waiting use karo (default feature)
-
 Playwright wait karta hai until:
 
 ✔ visible

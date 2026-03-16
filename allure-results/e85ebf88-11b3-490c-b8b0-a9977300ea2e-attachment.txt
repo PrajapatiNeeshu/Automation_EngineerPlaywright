@@ -1,0 +1,4 @@
+❌ Test failed: page.waitForEvent: Target page, context or browser has been closed
+=========================== logs ===========================
+waiting for event "download"
+============================================================

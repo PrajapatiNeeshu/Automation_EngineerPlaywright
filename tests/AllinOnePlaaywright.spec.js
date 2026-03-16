@@ -227,6 +227,12 @@ test.only('12: Mouse actions - double click, right click, hover', async ({ page 
     await page.hover('ul#nav li:nth-child(2) > a');
   await page.screenshot({ path: 'screenshots/hover_effect.png' });
 });
+
+
+//write infinite scrooling how can page on scrolling kese kre write the code
+
+//how can handle child window in playwright
+
 //what is the difference between page.click and page.hover_effect
 test('13-14: Evaluate JavaScript and handle dialogs/alerts', async ({ page }) => {
   // Evaluate JS
