@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 
-test.only('@popwindow 10: New tabs and popup windows', async ({ context, page }) => {
+test('@popwindow 10: New tabs and popup windows', async ({ context, page }) => {
   // New tab
   await page.goto('https://the-internet.herokuapp.com/windows');
   const [newTab] = await Promise.all([
