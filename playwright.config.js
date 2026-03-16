@@ -60,18 +60,18 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium-desktop',
-      use: {
-        browserName: 'chromium',
-        headless: false,
-        screenshot: 'on',
-        video: 'retain-on-failure',
-        ignoreHTTPSErrors: true,
-        trace: 'on',
-        viewport: { width: 1280, height: 720 }
-      },
-    },
+    // {
+    //   name: 'chromium-desktop',
+    //   use: {
+    //     browserName: 'chromium',
+    //     headless: false,
+    //     screenshot: 'on',
+    //     video: 'retain-on-failure',
+    //     ignoreHTTPSErrors: true,
+    //     trace: 'on',
+    //     viewport: { width: 1280, height: 720 }
+    //   },
+    // },
     {
       name: 'chromium-iPhone-15-Plus',
       use: {
