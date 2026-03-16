@@ -1,0 +1,2 @@
+New tab title: New Window
+Popup window text: This is a sample page
