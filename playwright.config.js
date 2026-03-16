@@ -37,7 +37,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Run tests in headless mode by default (headed = false). */
-    headless: false,
+    headless: true,
     /* Capture screenshots and videos for each test. */
     /*
       - screenshot: 'on' will take a screenshot after each test (pass/fail).
@@ -76,7 +76,7 @@ export default defineConfig({
       name: 'chromium-iPhone-15-Plus',
       use: {
         browserName: 'chromium',
-        headless: false, // run in headless mode
+        headless: true, // run in headless mode
         screenshot: 'on',
         video: 'retain-on-failure', // capture video only when test fails
         ignoreHTTPSErrors: true,
