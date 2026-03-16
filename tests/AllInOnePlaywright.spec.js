@@ -858,10 +858,10 @@ test('Handle web components', async ({ page }) => {
 
 // Example 
 response:{
-"id": 101,
-"name": "John",
-"job": "QA"
-};
+// "id": 101,
+// "name": "John",
+// "job": "QA"
+// };
 const response = await apiContext.post('/users')
 
 const body = await response.json()
